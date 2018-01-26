@@ -1,0 +1,15 @@
+---
+  "CONDITION_AND":
+    type: "AndCondition"
+    params: 
+      conditions: []
+ 
+  "CONDITION_OR":
+    type: "OrCondition"
+    params:
+      conditions: [] 
+
+  "CONDITION_NOT":
+    type: "NotCondition"
+    params:
+      conditions: []

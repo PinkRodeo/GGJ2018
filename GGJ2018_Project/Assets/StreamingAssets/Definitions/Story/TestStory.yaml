@@ -1,0 +1,35 @@
+---
+  "STORY_TEST_1":
+    storyName: "The epic story"
+    startNode: "STORYNODE_TEST_1"
+
+
+  "STORY_TEST_AFFECT_NEIGHBOURS":
+    startNode:
+      onStartRewards:
+        - { type: "AddSettlementFlag", params: { flag: "HAS_SPEED_BOOST" } }
+        - { type: "AddSettlementFlag", params: { flag: "AFFECT_NEIGHBOURS" } }
+
+      effects:
+        - { type: "NullEffect", params: { speed: 2000.0, targetLocation: {xDir: -1, yDir: -1}} }
+        - type: NullEffect
+          params: 
+            range: 200
+            conditions: 
+              - { type: "SettlementFlagCondition", params: { flag: "HAS_SPEED_BOOST", operator: "NotEquals"}}
+            effects:
+              - { type: "AddSettlementFlag", params: { flag: "HAS_SPEED_BOOST" } }
+              - { type: "AddStoryEffect", params: { storyKey: "STORY_TEST_MOVE_ALOT" } }
+
+
+      storyTriggers:
+      - conditions:
+          - type: "KeyHeldCondition"
+            params: {}
+        rewards:
+          - "REWARD_TEST_1"
+
+
+  "STORY_TEST_NOTHING":
+    startNode:
+      effects: []

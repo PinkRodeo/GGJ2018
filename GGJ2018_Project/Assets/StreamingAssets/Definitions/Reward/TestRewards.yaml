@@ -1,0 +1,50 @@
+---
+  "REWARD_COMPLETE_STORYNODE":
+    type: "CompleteStoryNode"
+    params: {}
+
+  "REWARD_TEST_1": 
+    type: "NullEffect"
+    params: {}
+
+  "REWARD_PRINT_1":
+    type: "PrintEffect"
+    params: "Printing"
+
+  "REWARD_PRINT_2":
+    type: "PrintEffect"
+    params: "We waited!"
+
+  "REWARD_TEST_WAIT_FOR_COMBO":
+      type: "WaitForCombo"
+      params: 
+        comboDefinition: "COMBO_SAY_HELLO"
+        effects: 
+          - "REWARD_PRINT_2"
+
+
+  "REWARD_RANDOM":
+    type: "RandomEffect"
+    params: 
+      effects:
+      - type: "NullEffect"
+        params: {storyKey: "STORY_TEST_2"}
+      - type: "NullEffect"
+        params: {storyKey: "STORY_TEST_3"}
+      - type: "NullEffect"
+        params: {storyKey: "STORY_TEST_NOTHING"}
+
+  "REWARD_CONDITIONAL":
+    type: "ConditionalEffect"
+    params: 
+      statements:
+        - conditions:
+            - type: "WorldFlagCondition"
+              params: {flag: "DoesRuckusMakerExist", operator: "NotEquals"}
+          effects:
+            - type: "AddWorldFlagEffect"
+              params: {flag: "DoesRuckusMakerExist"}
+        - conditions: []
+          effects: 
+            - type: "NullEffect"
+              params: []
