@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class TimeOfDay : MonoBehaviour
 {
 	[SerializeField]
-	private TextMesh m_TextMesh;
+	private TextMeshPro m_TextMesh;
 	[SerializeField, Tooltip("Seconds real time")]
 	private float m_DayDuration = 10f;
 
