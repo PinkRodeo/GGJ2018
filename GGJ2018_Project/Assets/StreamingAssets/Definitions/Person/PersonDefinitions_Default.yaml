@@ -18,13 +18,6 @@
           onCompleteEffects: 
             - type: "PrintEffect"
               params: "You listened to me, I appreciate that."
-            - type: "WaitForCombo"
-              params: 
-                comboDefinition: "COMBO_SAY_HELLO"
-                effects: 
-                  - type: "TransmitTextEffect"
-                    params: 
-                      text: "I am really glad to have someone to talk to."
                
           onBreakoffEffects: 
             - type: "PrintEffect"
@@ -70,13 +63,6 @@
               params: {flag: "INTROBOT_DONE", operator: "NotEquals"}
           effects:
             - "EFFECT_INTROBOT_1"
-            - type: "WaitForCombo"
-              params: 
-                comboDefinition: "COMBO_CHEAT"
-                effects:
-                  - "EFFECT_UNLOCK_X"
-                  - "EFFECT_UNLOCK_Y"
-                  - "EFFECT_UNLOCK_Z"
           elseEffects: []
 
 

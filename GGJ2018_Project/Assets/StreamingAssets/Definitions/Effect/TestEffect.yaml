@@ -15,39 +15,8 @@
           params: "You're a jerk!"
 
 
-  "EFFECT_DICT_HELLO":
-    type: "AddComboToDictionaryEffect"
-    params: 
-      comboDefinitionKey: "COMBO_SAY_HELLO"
-
-  "EFFECT_UNLOCK_X":
-    type: "UnlockAxisEffect"
-    params: "x"
-
-  "EFFECT_UNLOCK_Y":
-    type: "UnlockAxisEffect"
-    params: "y"
-
-  "EFFECT_UNLOCK_Z":
-    type: "UnlockAxisEffect"
-    params: "z"
-
-  "EFFECT_CLEAR_COMBO":
-    type: "ClearCombosEffect"
-    params: {}
-
 ## INTRO BOT ##
 
-  "EFFECT_INTROBOT_1":
-    type: "TransmitTextEffect"
-    params:
-      text: "Welcome to the H.A.M. network.\n\nI take it you can hear me?"
-      onCompleteEffects:
-        - type: "AddComboToDictionaryEffect"
-          params: 
-            comboDefinitionKey: "COMBO_CONFIRM"
-      onConfirmEffects:
-        - EFFECT_INTROBOT_1_2
 #Fellow airwave enthousiasts from around the world float frequent these spaces
 
   "EFFECT_INTROBOT_1_2":
@@ -117,22 +86,6 @@
     type: "TransmitTextEffect"
     params:
       text: "Hello there, who are you?"
-      onCompleteEffects:
-        - type: "AddComboToDictionaryEffect"
-          params: {comboDefinitionKey: "COMBO_SAY_HELLO"}
-        - type: "WaitForCombo"
-          params:
-            comboDefinition: "COMBO_SAY_HELLO"
-            effects: 
-              - "EFFECT_FR1_START_CONVERSATION_2"
-              - "EFFECT_CLEAR_COMBO"
-        - type: "WaitForCombo"
-          params:
-            comboDefinition: "COMBO_CONFIRM"
-            effects:
-              - type: "TransmitTextEffect"
-                params:
-                  text: "Won't you say hello?"
 
   "EFFECT_FR1_START_CONVERSATION_2":
     type: "TransmitTextEffect"

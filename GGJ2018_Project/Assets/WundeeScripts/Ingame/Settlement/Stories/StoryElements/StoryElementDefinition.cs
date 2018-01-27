@@ -18,7 +18,14 @@ namespace Wundee.Stories
 			ContentHelper.VerifyKey(jsonData, D.TYPE, definitionKey);
 			ContentHelper.VerifyType(stringToType, jsonData[D.TYPE].ToString(), definitionKey);
 
-			var type = stringToType[jsonData[D.TYPE].ToString()];
+            var typeString = jsonData[D.TYPE].ToString();
+            
+            if (!stringToType.ContainsKey(typeString))
+            {
+                Logger.Error("Type not found with name: " + typeString);
+            }
+
+			var type = stringToType[typeString];
 			masterCopy = System.Activator.CreateInstance(type) as TConcrete;
 
 			masterCopy.definition = this;

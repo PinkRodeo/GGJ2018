@@ -74,5 +74,20 @@ namespace Wundee.Stories
 	}
 
 
+    public class TransmitTextEffect: Effect
+    {
+        private string _textToTransmit;
+
+        public override void ParseParams(JsonData parameters)
+        {
+            ContentHelper.VerifyKey(parameters, D.TEXT, definition.definitionKey);
+            _textToTransmit = parameters[D.TEXT].ToString();
+        }
+
+        public override void ExecuteEffect()
+        {
+            Logger.Log(_textToTransmit);
+        }
+    }
 
 }

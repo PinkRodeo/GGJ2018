@@ -15,14 +15,6 @@
     type: "PrintEffect"
     params: "We waited!"
 
-  "REWARD_TEST_WAIT_FOR_COMBO":
-      type: "WaitForCombo"
-      params: 
-        comboDefinition: "COMBO_SAY_HELLO"
-        effects: 
-          - "REWARD_PRINT_2"
-
-
   "REWARD_RANDOM":
     type: "RandomEffect"
     params: 
