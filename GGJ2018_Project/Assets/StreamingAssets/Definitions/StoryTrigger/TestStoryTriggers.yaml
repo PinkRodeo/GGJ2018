@@ -1,4 +1,5 @@
 ---
   "STORYTRIGGER_TEST_1":
+    text: "ChoiceText"
     conditions: []
     rewards: []

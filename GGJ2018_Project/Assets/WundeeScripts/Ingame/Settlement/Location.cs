@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Wundee
 {
-    public class Person
+    public class Location
 	{
 		public readonly StoryHolder storyHolder;
 
@@ -16,7 +16,7 @@ namespace Wundee
 
 		private AudioClip[] audioClips;
 
-		public Person(PersonDefinition p_Definition)
+		public Location(PersonDefinition p_Definition)
 		{
 			this.definition = p_Definition;
 

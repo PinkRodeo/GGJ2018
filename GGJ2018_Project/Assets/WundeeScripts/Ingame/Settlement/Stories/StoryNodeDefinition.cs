@@ -5,8 +5,10 @@ namespace Wundee.Stories
 {
     public class StoryNodeDefinition : Definition<StoryNode>
 	{
+        public string nodeText;
+
 		private Definition<Effect>[] _effectDefinitions;
-		private Definition<StoryTrigger>[] _storyTriggerDefinitions;
+		private Definition<StoryChoice>[] _storyTriggerDefinitions;
 
 		private Definition<Effect>[] _onStartRewardDefinitions;
 		private Definition<Effect>[] _onCompleteRewardDefinitions;
@@ -15,15 +17,17 @@ namespace Wundee.Stories
 		{
 			var keys = jsonData.Keys;
 
+            nodeText = ContentHelper.ParseString(jsonData, D.TEXT, "No Conversation Text");  
+
 			if (keys.Contains(D.EFFECTS))
 				this._effectDefinitions = EffectDefinition.ParseDefinitions(jsonData[D.EFFECTS], definitionKey);
 			else
 				this._effectDefinitions = new Definition<Effect>[0];
 
 			if (keys.Contains(D.STORYTRIGGERS))
-				this._storyTriggerDefinitions = StoryTriggerDefinition.ParseDefinitions(jsonData[D.STORYTRIGGERS], definitionKey);
+				this._storyTriggerDefinitions = StoryChoiceDefinition.ParseDefinitions(jsonData[D.STORYTRIGGERS], definitionKey);
 			else
-				this._storyTriggerDefinitions = new Definition<StoryTrigger>[0];
+				this._storyTriggerDefinitions = new Definition<StoryChoice>[0];
 
 			if (keys.Contains(D.REWARDS_ON_START))
 				this._onStartRewardDefinitions = EffectDefinition.ParseDefinitions(jsonData[D.REWARDS_ON_START], definitionKey);

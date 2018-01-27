@@ -12,7 +12,7 @@ namespace Kingdom
         public override void Start()
         {
             base.Start();
-            var person = new Person(game.definitions.personDefinitions["PERSON_DEFAULT_01"]);
+            var person = new Location(game.definitions.personDefinitions["PERSON_DEFAULT_01"]);
 
         }
     }

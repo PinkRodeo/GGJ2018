@@ -1,0 +1,9 @@
+---
+  "CONV_TEST_1":
+    text: "Hello"
+
+    choices:
+      - "CHOICE_TEST_1_1"
+      - text: "This is the second option"
+        effects: []
+        conditions: []

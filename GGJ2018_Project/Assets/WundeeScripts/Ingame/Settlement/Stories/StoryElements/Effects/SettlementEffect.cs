@@ -29,7 +29,7 @@ namespace Wundee.Stories
 				_effectDefinitions = new Definition<Effect>[0];
 		}
 
-		protected void ExecuteOnSettlements(List<Person> settlements)
+		protected void ExecuteOnSettlements(List<Location> settlements)
 		{
 			for (int i = 0; i < settlements.Count; i++)
 			{
@@ -37,7 +37,7 @@ namespace Wundee.Stories
 					settlements[i].ExecuteEffectFromDefinition(ref _effectDefinitions);
 			}
 		}
-		protected void ExecuteOnSettlement(Person p_Person)
+		protected void ExecuteOnSettlement(Location p_Person)
 		{
 			if (p_Person.CheckConditionFromDefinition(ref _conditionDefinitions))
 				p_Person.ExecuteEffectFromDefinition(ref _effectDefinitions);

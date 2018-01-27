@@ -8,12 +8,14 @@
     params: 
       text: "Sometimes I cry myself to sleep. It gets worse over time. Sometimes, I even long for the sweet release of death."
       onCompleteEffects: 
-        - type: "PrintEffect"
-          params: "You listened to me, I appreciate that."
+        - "EFFECT_REFERENCE"
       onBreakoffEffects: 
         - type: "PrintEffect"
           params: "You're a jerk!"
 
+  "EFFECT_REFERENCE":
+    type: "PrintEffect"
+    params: "You listened to me, I appreciate that."
 
 ## INTRO BOT ##
 

@@ -22,7 +22,7 @@ namespace Wundee.Stories
 
 		public override void ExecuteEffect()
 		{
-			parentStoryNode.parentStory.parentPerson.storyHolder.AddStory(_storyKey);
+			parentStoryNode.parentStory.parentLocation.storyHolder.AddStory(_storyKey);
 		}
 	}
 
@@ -38,7 +38,7 @@ namespace Wundee.Stories
 
 		public override void ExecuteEffect()
 		{
-			parentStoryNode.parentStory.parentPerson.storyHolder.RemoveStory(_storyKey);
+			parentStoryNode.parentStory.parentLocation.storyHolder.RemoveStory(_storyKey);
 		}
 	}
 

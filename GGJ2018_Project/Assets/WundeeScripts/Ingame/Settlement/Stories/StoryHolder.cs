@@ -3,7 +3,7 @@
 
     public class StoryHolder
 	{
-		private Person owner;
+		private Location owner;
 
 		private Story[] activeStories;
 
@@ -11,7 +11,7 @@
 		public readonly StoryNode lifeStoryNode;
 
 
-		public StoryHolder(Person owner)
+		public StoryHolder(Location owner)
 		{
 			this.owner = owner;
 
@@ -19,7 +19,7 @@
 			lifeStoryNode = new StoryNode();
 
 			lifeStory.currentNode = lifeStoryNode;
-			lifeStory.parentPerson = owner;
+			lifeStory.parentLocation = owner;
 			lifeStoryNode.parentStory = lifeStory;
 
 
@@ -28,11 +28,8 @@
 
 		public void Tick()
 		{
-			for (int index = 0; index < activeStories.Length; index++)
-			{
-				activeStories[index].Tick();
-			}
-		}
+
+        }
 
 		public void AddStory(string definitionKey)
 		{

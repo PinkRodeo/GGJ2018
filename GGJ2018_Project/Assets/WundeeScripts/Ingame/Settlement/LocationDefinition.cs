@@ -3,7 +3,7 @@ using Wundee.Stories;
 
 namespace Wundee
 {
-    public class PersonDefinition : Definition<Person>
+    public class PersonDefinition : Definition<Location>
 	{
 		public Definition<Effect>[] _onStartRewardDefinitions;
 		public Definition<Effect>[] _onTuneInRewardDefinitions;
@@ -39,9 +39,9 @@ namespace Wundee
 		}
 
 		// parent == habitat
-		public override Person GetConcreteType(object parent = null)
+		public override Location GetConcreteType(object parent = null)
 		{
-			var newPerson = new Person(this);
+			var newPerson = new Location(this);
 			newPerson.ExecuteEffectFromDefinition(ref _onStartRewardDefinitions);
 		
 

@@ -4,12 +4,6 @@ namespace Wundee.Stories
 {
 	public class StoryNode
 	{
-		public enum StoryNodeState
-		{
-			Running,
-			Finished
-		}
-
 		public StoryNodeDefinition definition;
 		public Story parentStory;
 		
@@ -18,22 +12,7 @@ namespace Wundee.Stories
 		public Effect[] onStartRewards;
 		public Effect[] onCompleteRewards;
 
-		public StoryTrigger[] storyTriggers;
-
-		public StoryNodeState Tick()
-		{
-			for (int i = 0; i < storyTriggers.Length; i++)
-			{
-				if (storyTriggers[i].CheckTrigger())
-				{
-					return StoryNodeState.Finished;
-				}
-			}
-
-			effects.ExecuteEffects();
-			
-			return StoryNodeState.Running;
-		}
+		public StoryChoice[] storyTriggers;
 
 		public void OnStart()
 		{

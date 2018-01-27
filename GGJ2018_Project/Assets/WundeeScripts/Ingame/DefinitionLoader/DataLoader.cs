@@ -18,11 +18,11 @@ namespace Wundee
 {
 	public class DataLoader
 	{
-		public DefinitionLoader<PersonDefinition, Person> personDefinitions; 
+		public DefinitionLoader<PersonDefinition, Location> personDefinitions; 
 
 		public DefinitionLoader<StoryDefinition, Story> storyDefinitions;
 		public DefinitionLoader<StoryNodeDefinition, StoryNode> storyNodeDefinitions;
-		public DefinitionLoader<StoryTriggerDefinition, StoryTrigger> storyTriggerDefinitions;
+		public DefinitionLoader<StoryChoiceDefinition, StoryChoice> storyTriggerDefinitions;
 
 		public DefinitionLoader<EffectDefinition, Effect> effectDefinitions;
 		public DefinitionLoader<ConditionDefinition, Condition> conditionDefinitions;
@@ -37,11 +37,11 @@ namespace Wundee
 
 		public DataLoader()
 		{
-			personDefinitions = new DefinitionLoader<PersonDefinition, Person>(this);
+			personDefinitions = new DefinitionLoader<PersonDefinition, Location>(this);
 
 			storyDefinitions = new DefinitionLoader<StoryDefinition, Story>(this);
 			storyNodeDefinitions = new DefinitionLoader<StoryNodeDefinition, StoryNode>(this);
-			storyTriggerDefinitions = new DefinitionLoader<StoryTriggerDefinition, StoryTrigger>(this);
+			storyTriggerDefinitions = new DefinitionLoader<StoryChoiceDefinition, StoryChoice>(this);
 
 			effectDefinitions = new DefinitionLoader<EffectDefinition, Effect>(this);
 			conditionDefinitions = new DefinitionLoader<ConditionDefinition, Condition>(this);
@@ -53,7 +53,7 @@ namespace Wundee
 
 			definitionLoaderMapper[typeof (StoryDefinition)] = storyDefinitions;
 			definitionLoaderMapper[typeof (StoryNodeDefinition)] = storyNodeDefinitions;
-			definitionLoaderMapper[typeof (StoryTriggerDefinition)] = storyTriggerDefinitions;
+			definitionLoaderMapper[typeof (StoryChoiceDefinition)] = storyTriggerDefinitions;
 
 			definitionLoaderMapper[typeof (EffectDefinition)] = effectDefinitions;
 			definitionLoaderMapper[typeof (ConditionDefinition)] = conditionDefinitions;
