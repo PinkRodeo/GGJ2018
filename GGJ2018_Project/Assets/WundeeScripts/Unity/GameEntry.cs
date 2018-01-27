@@ -10,8 +10,6 @@ namespace WundeeUnity
 
         public static Game gameInstance;
 
-		//[Header("Temp Debug")] public GameObject dockObject;
-
 		protected virtual void Awake()
 		{
 			this.game = new Game(gameParamsKey, this);
@@ -20,7 +18,6 @@ namespace WundeeUnity
             game.Initialize();
         }
 
-		// Update is called once per frame
 		protected void Update()
 		{
 			game.Update(UnityEngine.Time.deltaTime);
