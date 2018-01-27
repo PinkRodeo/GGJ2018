@@ -24,8 +24,8 @@ namespace Wundee.Stories
 			else
 				this._effectDefinitions = new Definition<Effect>[0];
 
-			if (keys.Contains(D.STORYTRIGGERS))
-				this._storyTriggerDefinitions = StoryChoiceDefinition.ParseDefinitions(jsonData[D.STORYTRIGGERS], definitionKey);
+			if (keys.Contains(D.STORYCHOICES))
+				this._storyTriggerDefinitions = StoryChoiceDefinition.ParseDefinitions(jsonData[D.STORYCHOICES], definitionKey);
 			else
 				this._storyTriggerDefinitions = new Definition<StoryChoice>[0];
 
@@ -50,7 +50,7 @@ namespace Wundee.Stories
 				Logger.Log("[StoryNodeDefinition] Invalid parent Story provided for new StoryNode");
 
 			newStoryNode.effects = _effectDefinitions.GetConcreteTypes(newStoryNode);
-			newStoryNode.storyTriggers = _storyTriggerDefinitions.GetConcreteTypes(newStoryNode);
+			newStoryNode.storyChoices = _storyTriggerDefinitions.GetConcreteTypes(newStoryNode);
 			newStoryNode.onStartRewards = _onStartRewardDefinitions.GetConcreteTypes(newStoryNode);
 			newStoryNode.onCompleteRewards = _onCompleteRewardDefinitions.GetConcreteTypes(newStoryNode);
 

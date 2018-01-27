@@ -1,0 +1,9 @@
+---
+  "SPY_TEST_1":
+    text: "Spy Message Text"
+
+    storyChoices:
+      - "CHOICE_TEST_1_1"
+      - text: "This is the second option"
+        rewards: []
+        conditions: []

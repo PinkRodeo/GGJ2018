@@ -12,7 +12,7 @@ namespace Wundee.Stories
 		public Effect[] onStartRewards;
 		public Effect[] onCompleteRewards;
 
-		public StoryChoice[] storyTriggers;
+		public StoryChoice[] storyChoices;
 
 		public void OnStart()
 		{

@@ -1,5 +1,5 @@
 ---
   "CHOICE_TEST_1_1":
     text: "This is the first option"
-    effects: []
+    rewards: []
     conditions: []

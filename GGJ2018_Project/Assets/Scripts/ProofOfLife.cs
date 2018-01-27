@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Wundee;
+using Wundee.Stories;
 
 namespace Kingdom
 {
@@ -12,7 +13,18 @@ namespace Kingdom
         public override void Start()
         {
             base.Start();
-            var person = new Location(game.definitions.personDefinitions["PERSON_DEFAULT_01"]);
+            var location = new Location(game.definitions.locationDefinitions["PERSON_DEFAULT_01"]);
+
+            var spyMessageDefinition = game.definitions.storyNodeDefinitions["SPY_TEST_1"];
+
+            Debug.Log(spyMessageDefinition.nodeText);
+
+            var spyMessage = spyMessageDefinition.GetConcreteType(null) as StoryNode;
+
+            foreach (var choice in spyMessage.storyChoices)
+            {
+                Debug.Log(choice.definition.choiceText);
+            }
 
         }
     }

@@ -95,7 +95,7 @@ namespace Wundee
 
 		// Stories
 		public const string START_NODE = "startNode";
-		public const string STORYTRIGGERS = "storyTriggers";
+		public const string STORYCHOICES = "storyChoices";
 
 		public const string EFFECTS = "effects";
 		public const string CONDITIONS = "conditions";

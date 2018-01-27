@@ -12,11 +12,11 @@ namespace Wundee
         private double _timeOfPreviousUpdate;
 
 		private HashSet<ushort> _settlementFlags = new HashSet<ushort>();
-		public PersonDefinition definition;
+		public LocationDefinition definition;
 
 		private AudioClip[] audioClips;
 
-		public Location(PersonDefinition p_Definition)
+		public Location(LocationDefinition p_Definition)
 		{
 			this.definition = p_Definition;
 

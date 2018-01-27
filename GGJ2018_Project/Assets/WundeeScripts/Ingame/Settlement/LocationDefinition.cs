@@ -3,7 +3,7 @@ using Wundee.Stories;
 
 namespace Wundee
 {
-    public class PersonDefinition : Definition<Location>
+    public class LocationDefinition : Definition<Location>
 	{
 		public Definition<Effect>[] _onStartRewardDefinitions;
 		public Definition<Effect>[] _onTuneInRewardDefinitions;
