@@ -8,11 +8,14 @@ namespace WundeeUnity
 		public Game game;
 		public string gameParamsKey = "default";
 
+        public static Game gameInstance;
+
 		//[Header("Temp Debug")] public GameObject dockObject;
 
 		protected virtual void Awake()
 		{
 			this.game = new Game(gameParamsKey, this);
+            gameInstance = this.game;
 
             game.Initialize();
         }

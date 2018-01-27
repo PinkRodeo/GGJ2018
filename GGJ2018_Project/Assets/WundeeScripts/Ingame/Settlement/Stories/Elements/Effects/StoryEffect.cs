@@ -90,4 +90,25 @@ namespace Wundee.Stories
         }
     }
 
+    public class GoldEffect: Effect
+    {
+        private int _amount;
+
+        public override void ParseParams(JsonData parameters)
+        {
+            _amount = ContentHelper.ParseInt(parameters, D.AMOUNT, 0);
+
+            if (_amount == 0)
+            {
+                Logger.Warning("Only 0 money? " + parentStoryNode.definition.definitionKey);
+            }
+            
+        }
+
+        public override void ExecuteEffect()
+        {
+            WundeeUnity.GameEntry.gameInstance.world.gold += _amount;
+        }
+    }
+
 }

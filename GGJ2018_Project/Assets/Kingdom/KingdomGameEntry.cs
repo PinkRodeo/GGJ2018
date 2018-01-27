@@ -9,18 +9,10 @@ namespace Kingdom
 {
     public class KingdomGameEntry : WundeeUnity.GameEntry
     {
-        public static Game gameInstance;
-        
-        protected override void Awake()
-        {
-            base.Awake();
-
-            gameInstance = game;
-        }
-
         // Use this for initialization
         public void Start()
         {
+            /*
             var location = new Location(game.definitions.locationDefinitions["PERSON_DEFAULT_01"]);
 
             var spyMessageDefinition = game.definitions.storyNodeDefinitions["SPY_TEST_1"];
@@ -33,6 +25,7 @@ namespace Kingdom
             {
                 Debug.Log(choice.definition.choiceText);
             }
+            */
         }
     }
 }
