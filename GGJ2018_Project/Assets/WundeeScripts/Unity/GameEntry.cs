@@ -16,7 +16,7 @@ namespace WundeeUnity
 		}
 
 		// Use this for initialization
-		void Start()
+		public virtual void Start()
 		{
 			game.Initialize();
 
