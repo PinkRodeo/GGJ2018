@@ -1,29 +1,24 @@
-﻿namespace Wundee.Stories
+﻿using System.Collections.Generic;
+
+namespace Wundee.Stories
 {
 
     public class StoryHolder
 	{
 		private Location owner;
 
-		private Story[] activeStories;
+		private List<StoryNode> activeStories;
 
-		public readonly Story lifeStory;
-		public readonly StoryNode lifeStoryNode;
-
+        public readonly StoryNode lifeStoryNode;
 
 		public StoryHolder(Location owner)
 		{
 			this.owner = owner;
 
-			lifeStory = new Story();
-			lifeStoryNode = new StoryNode();
+            lifeStoryNode = new StoryNode();
+            lifeStoryNode.parentLocation = owner;
 
-			lifeStory.currentNode = lifeStoryNode;
-			lifeStory.parentLocation = owner;
-			lifeStoryNode.parentStory = lifeStory;
-
-
-			activeStories = new Story[0];
+            activeStories = new List<StoryNode>();
 		}
 
 		public void Tick()
@@ -31,39 +26,37 @@
 
         }
 
-		public void AddStory(string definitionKey)
+		public StoryNode AddStoryNode(string definitionKey)
 		{
-			var storyDefinition = Game.instance.definitions.storyDefinitions[definitionKey];
+			var storyDefinition = Game.instance.definitions.storyNodeDefinitions[definitionKey];
+            var storyNode = storyDefinition.GetConcreteType(owner);
+            activeStories.Add(storyNode);
 
-			var newStories = new Story[activeStories.Length + 1];
-
-
-			activeStories.CopyTo(newStories, 0);
-			newStories[activeStories.Length] = storyDefinition.GetConcreteType(owner);
-
-			activeStories = newStories;
+            return storyNode;
 		}
 
 		public void RemoveStory(string definitionKey)
 		{
-			for (int i = 0; i < activeStories.Length; i++)
-			{
-				if (activeStories[i].definition.definitionKey == definitionKey)
-				{
-					RemoveStory(i);
-					return;
-				}
-			}
-		}
+            StoryNode storyNodeToRemove = null;
 
-		public void RemoveStory(int index)
-		{
-			activeStories = activeStories.RemoveAt(index);
+            foreach (var storyNode in activeStories)
+            {
+                if (storyNode.definition.definitionKey == definitionKey)
+                {
+                    storyNodeToRemove = storyNode;
+                }
+                
+            }
+
+            if (storyNodeToRemove != null)
+            {
+                activeStories.Remove(storyNodeToRemove);
+            }
 		}
 
 		public bool IsStoryActive(string storyDefinitionKey)
 		{
-			for (int i = 0; i < activeStories.Length; i++)
+			for (int i = 0; i < activeStories.Count; i++)
 			{
 				if (activeStories[i].definition.definitionKey == storyDefinitionKey)
 				{

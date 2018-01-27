@@ -5,7 +5,7 @@ namespace Wundee.Stories
 	public class StoryNode
 	{
 		public StoryNodeDefinition definition;
-		public Story parentStory;
+		public Location parentLocation;
 		
 		public Effect[] effects;
 

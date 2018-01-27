@@ -1,4 +1,6 @@
 ﻿
+
+using System.Collections;
 using System.Collections.Generic;
 
 namespace Wundee
@@ -7,12 +9,13 @@ namespace Wundee
 	{
 		private readonly Dictionary<string, TDefinition> _definitions;
 		private readonly DataLoader _loader;
-		
-		public DefinitionLoader(DataLoader loader)
+        private readonly string _typeName;
+
+        public DefinitionLoader(DataLoader loader)
 		{
 			this._loader = loader;
 			this._definitions = new Dictionary<string, TDefinition>(100);
-		}
+        }
 
 		public void AddFolder(string relativePath)
 		{
@@ -49,7 +52,14 @@ namespace Wundee
 		{
 			get
 			{
-				return _definitions[definitionKey];
+
+#if UNITY_EDITOR
+                if (_definitions.ContainsKey(definitionKey) == false)
+                {
+                    Logger.Error("Cannot find key: " + definitionKey + " of type " + this.ToString());
+                }
+#endif
+                return _definitions[definitionKey];
 			}
 		}
 

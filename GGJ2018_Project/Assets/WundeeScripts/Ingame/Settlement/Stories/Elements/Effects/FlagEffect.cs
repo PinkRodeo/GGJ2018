@@ -14,7 +14,7 @@ namespace Wundee.Stories
 
 		public override void ExecuteEffect()
 		{
-			parentStoryNode.parentStory.parentLocation.AddFlag(_settlementFlag);
+			parentStoryNode.parentLocation.AddFlag(_settlementFlag);
 		}
 	}
 
@@ -29,7 +29,7 @@ namespace Wundee.Stories
 
 		public override void ExecuteEffect()
 		{
-			parentStoryNode.parentStory.parentLocation.RemoveFlag(_settlementFlag);
+			parentStoryNode.parentLocation.RemoveFlag(_settlementFlag);
 		}
 	}
 
