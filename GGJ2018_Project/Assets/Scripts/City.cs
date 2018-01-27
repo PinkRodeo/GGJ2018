@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class City : MonoBehaviour, iClickObject
+public class City : MonoBehaviour
 {
 	public System.Action<City> OnCityClicked = delegate {};
 
-	public void OnClicked()
+	private void OnMouseDown()
 	{
 		OnCityClicked(this);
 	}
