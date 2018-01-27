@@ -23,14 +23,11 @@ namespace Kingdom
         {
             var game = KingdomGameEntry.gameInstance;
 
-            var location = new Location(game.definitions.locationDefinitions["PERSON_DEFAULT_01"]);
+            var location = new Location(game.definitions.locationDefinitions["LOC_SMUGGLERS_DEN"]);
 
-            var spyMessageDefinition = game.definitions.storyNodeDefinitions["SPY_TEST_1"];
+            var spyMessage = location.storyHolder.AddStoryNode("SPY_TEST_1");
 
-            Debug.Log(spyMessageDefinition.nodeText);
-
-            var spyMessage = spyMessageDefinition.GetConcreteType(null) as StoryNode;
-
+            Debug.Log(spyMessage.definition.nodeText);
             foreach (var choice in spyMessage.storyChoices)
             {
                 Debug.Log(choice.definition.choiceText);

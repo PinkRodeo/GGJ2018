@@ -1,145 +1,60 @@
 ---
-  "PERSON_DEFAULT":
-    voiceKey : "A"
-    voiceVolume : "1.0"
-    portraitKey : "Portrait_1"
+  "LOC_SPYMASTERS_HOUSE":
+    name: "Spymaster's House"
 
-    onStartRewards:
-      - "EFFECT_DICT_HELLO"
-
-      - type: "PrintEffect"
-        params: "StartReward"
-
-    onTuneRewards:
-      - "REWARD_TEST_WAIT_FOR_COMBO"
-      - type: "TransmitTextEffect"
-        params: 
-          text: "Sometimes I cry myself to sleep. It gets worse over time. Sometimes, I even long for the sweet release of death."
-          onCompleteEffects: 
-            - type: "PrintEffect"
-              params: "You listened to me, I appreciate that."
-               
-          onBreakoffEffects: 
-            - type: "PrintEffect"
-              params: "You're a jerk!"
-
-  "PERSON_DEFAULT_01":
-    voiceKey : "A"
-    voiceVolume : "1.0"
-
-    onStartRewards:
-      - type: "PrintEffect"
-        params: "BLOBLO"
-
-      - type: "ConditionalEffect"
-        params: 
-          statements:
-            - conditions:
-                - type: "WorldFlagCondition"
-                  params: {flag: "DoesRuckusMakerExist", operator: "NotEquals"}
-              effects:
-                - type: "AddWorldFlagEffect"
-                  params: {flag: "DoesRuckusMakerExist"}
-                - type: "AddStoryEffect"
-                  params: {storyKey: "STORY_TEST_AFFECT_NEIGHBOURS"}
-            - conditions: []
-              effects: 
-                - type: "RandomEffect"
-                  params: 
-                    effects:
-                    - type: "AddStoryEffect"
-                      params: {storyKey: "STORY_TEST_NOTHING"}
-
-  "PERSON_INTROBOT":
-    voiceKey: "Pidgeon"
-    voiceVolume : "0.3"
-    portraitKey : "Portrait_7"
-
-    onTuneRewards:
-      - type: "ConditionalEffect"
-        params: 
-          conditions:
-            - type: "WorldFlagCondition"
-              params: {flag: "INTROBOT_DONE", operator: "NotEquals"}
-          effects:
-            - "EFFECT_INTROBOT_1"
-          elseEffects: []
+    flags: []
 
 
+  "LOC_SMUGGLERS_DEN":
+    name: "Smuggler's Den"
+    isFactionCapital: "FACTION_KEY"
+
+    flags: []
 
 
+  "LOC_BIG_HARBOR":
+    name: "Big Harbor"
+
+    flags: []
+
+  "LOC_ST_PAULS_CATHEDRAL":
+    name: "St. Paul's Cathedral"
+
+    flags: []
+
+  "LOC_GUARDS_TOWER":
+    name: "Guard's Tower"
+    isFactionCapital: "FACTION_KEY"
+
+    flags: []
+
+  "LOC_INDUSTRIAL_PARK":
+    name: "Industrial Park"
+
+    flags: []
 
 
-  "PERSON_INFO_BOT":
-    voiceKey: "Robot"
-    voiceVolume : "0.3"
-    portraitKey : "Portrait_8"
+  "LOC_WEAPONS_MERCHANT":
+    name: "Weapon's Merchant"
 
-    onTuneRewards:
-      - type: "ConditionalEffect"
-        params:
-          statements:
-            - conditions:
-                - type: "WorldFlagCondition"
-                  params: {flag: "INFOBOT_INTRO_GIVEN", operator: "NotEquals"}
-              effects:
-                - type: "TransmitTextEffect"
-                  params: 
-                    text: "I am InfoBot. I am the information hub for this space."
-                    onCompleteEffects: 
-                      - type: "AddWorldFlagEffect"
-                        params: {flag: "INFOBOT_INTRO_GIVEN"}
-                      - "EFFECT_INFO_BOT_QUEUE"
-                      - "EFFECT_UNLOCK_Y"
-            - conditions: []
-              effects:
-                - "EFFECT_INFO_BOT_QUEUE"
+    flags: []
 
 
-  "PERSON_FRIEND1":
-    voiceKey: "Bored"
-    voiceVolume : "1.0"
-    portraitKey : "Portrait_1"
+  "LOC_WITCHES_MANSION":
+    name: "Witches' Mansion"
+    isFactionCapital: "FACTION_KEY"
+
+    flags: []
+
+  "LOC_POST_OFFICE":
+    name: "The Post Office"
+
+    flags: []
 
 
-    onTuneRewards:
-      - type: "ConditionalEffect"
-        params:
-          statements:
-            - conditions:
-              - type: "WorldFlagCondition"
-                params: {flag: "FRIEND1_HELPED", operator: "NotEquals"}
-              effects:
-                - "EFFECT_FR1_START_CONVERSATION_1"
+  "LOC_ORPHANAGE":
+    name: "The Orphanage"
+
+    flags: []
 
 
-
-
-  "PERSON_GABE":
-    voiceKey: "Gabe"
-    voiceVolume: 1.0
-    portraitKey: "Portrait_5"
-
-    onTuneRewards:
-      - "EFFECT_GABE_QUEUE"
-
-
-  "PERSON_SNEAK":
-    voiceKey: "Crackle"
-    voiceVolume: 1.0
-    portraitKey: "Portrait_4"
-
-    onTuneRewards:
-      - "EFFECT_SNEAK_QUEUE"
-
-
-  "PERSON_FRIEND2":
-    voiceKey: "Steb"
-    voiceVolume : "1.0"
-    portraitKey : "Portrait_3"
-
-    onTuneRewards:
-      - type: "TransmitTextEffect"
-        params:
-          text: "You found me!\n... ...\n...\nThat's all we got. Thanks for playing."
-          onConfirmEffects: []

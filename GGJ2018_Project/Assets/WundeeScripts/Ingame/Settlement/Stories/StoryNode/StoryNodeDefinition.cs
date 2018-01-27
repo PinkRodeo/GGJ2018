@@ -45,9 +45,9 @@ namespace Wundee.Stories
 			var newStoryNode = new StoryNode();
 			newStoryNode.definition = this;
 
-			newStoryNode.parentStory = parent as Story;
-			if (newStoryNode.parentStory == null)
-				Logger.Log("[StoryNodeDefinition] Invalid parent Story provided for new StoryNode");
+			newStoryNode.parentLocation = parent as Location;
+			if (newStoryNode.parentLocation == null)
+				Logger.Log("[StoryNodeDefinition] Invalid parent Location provided for new StoryNode");
 
 			newStoryNode.effects = _effectDefinitions.GetConcreteTypes(newStoryNode);
 			newStoryNode.storyChoices = _storyTriggerDefinitions.GetConcreteTypes(newStoryNode);

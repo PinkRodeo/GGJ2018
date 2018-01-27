@@ -1,8 +1,4 @@
 ---
-  "REWARD_COMPLETE_STORYNODE":
-    type: "CompleteStoryNode"
-    params: {}
-
   "REWARD_TEST_1": 
     type: "NullEffect"
     params: {}

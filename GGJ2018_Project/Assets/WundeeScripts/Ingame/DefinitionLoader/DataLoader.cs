@@ -19,8 +19,7 @@ namespace Wundee
 	public class DataLoader
 	{
 		public DefinitionLoader<LocationDefinition, Location> locationDefinitions; 
-
-		public DefinitionLoader<StoryDefinition, Story> storyDefinitions;
+        
 		public DefinitionLoader<StoryNodeDefinition, StoryNode> storyNodeDefinitions;
 		public DefinitionLoader<StoryChoiceDefinition, StoryChoice> storyChoiceDefinitions;
 
@@ -39,7 +38,6 @@ namespace Wundee
 		{
 			locationDefinitions = new DefinitionLoader<LocationDefinition, Location>(this);
 
-			storyDefinitions = new DefinitionLoader<StoryDefinition, Story>(this);
 			storyNodeDefinitions = new DefinitionLoader<StoryNodeDefinition, StoryNode>(this);
 			storyChoiceDefinitions = new DefinitionLoader<StoryChoiceDefinition, StoryChoice>(this);
 
@@ -50,8 +48,7 @@ namespace Wundee
 
 			
 			definitionLoaderMapper[typeof(LocationDefinition)] = locationDefinitions;
-
-			definitionLoaderMapper[typeof (StoryDefinition)] = storyDefinitions;
+            
 			definitionLoaderMapper[typeof (StoryNodeDefinition)] = storyNodeDefinitions;
 			definitionLoaderMapper[typeof (StoryChoiceDefinition)] = storyChoiceDefinitions;
 
@@ -84,9 +81,7 @@ namespace Wundee
 		{
 			locationDefinitions.AddFolder("Location");
 
-			storyDefinitions.AddFolder("Story");
-
-            storyNodeDefinitions.AddFolder("StoryNode");
+			storyNodeDefinitions.AddFolder("StoryNode");
             storyNodeDefinitions.AddFolder("Conversation");
             storyNodeDefinitions.AddFolder("SpyMessage");
 

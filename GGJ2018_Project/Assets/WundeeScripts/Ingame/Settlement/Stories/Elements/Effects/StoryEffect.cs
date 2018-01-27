@@ -22,7 +22,7 @@ namespace Wundee.Stories
 
 		public override void ExecuteEffect()
 		{
-			parentStoryNode.parentStory.parentLocation.storyHolder.AddStory(_storyKey);
+			parentStoryNode.parentLocation.storyHolder.AddStoryNode(_storyKey);
 		}
 	}
 
@@ -38,7 +38,7 @@ namespace Wundee.Stories
 
 		public override void ExecuteEffect()
 		{
-			parentStoryNode.parentStory.parentLocation.storyHolder.RemoveStory(_storyKey);
+			parentStoryNode.parentLocation.storyHolder.RemoveStory(_storyKey);
 		}
 	}
 
@@ -58,21 +58,6 @@ namespace Wundee.Stories
 			//parentStoryNode.parentStory.SetCurrentStoryNode();
 		}
 	}
-
-
-	public class CompleteStoryNodeEffect : Effect, IStoryEffect
-	{
-		public override void ParseParams(JsonData parameters)
-		{
-
-		}
-
-		public override void ExecuteEffect()
-		{
-			parentStoryNode.parentStory.SetCurrentStoryNode(null);
-		}
-	}
-
 
     public class TransmitTextEffect: Effect
     {
