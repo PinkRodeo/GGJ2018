@@ -6,4 +6,8 @@
       - "CHOICE_TEST_1_1"
       - text: "This is the second option"
         rewards: []
-        conditions: []
+        enabledConditions: 
+        - type: "WorldFlagCondition"
+          params:
+            flag: "Nope"
+            operator: "Equals"
