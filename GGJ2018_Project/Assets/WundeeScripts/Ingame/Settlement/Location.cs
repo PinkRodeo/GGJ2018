@@ -14,6 +14,8 @@ namespace Wundee
 
 		private AudioClip[] audioClips;
 
+        private City _City;
+
 		public Location(LocationDefinition p_Definition)
 		{
 			this.definition = p_Definition;
@@ -46,6 +48,12 @@ namespace Wundee
 			*/
 
 
+        }
+
+        public void SetCity(City city)
+        {
+            _City = city;
+            city.SetLocation(this);
         }
 
         public AudioClip[] GetAudioClips(){

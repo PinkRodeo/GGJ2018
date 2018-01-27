@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 
+using UnityEngine;
+
 namespace Wundee
 {
     public class World
@@ -46,7 +48,28 @@ namespace Wundee
                 locations.Add(locationKey, locationDefinitions[locationKey].GetConcreteType() as Location);
             }
 
+            var cities = GameObject.FindObjectsOfType<City>();
 
+            var locationsCopy = new Dictionary<string, Location>(locations);
+
+            foreach (var city in cities)
+            {
+                Location location;
+                if (locations.TryGetValue(city.locationDefinitionKey, out location))
+                {
+                    location.SetCity(city);
+                    locationsCopy.Remove(city.locationDefinitionKey);
+                }
+                else
+                {
+                    Logger.Error("Couldn't find locationdefinition with key " + city.locationDefinitionKey);
+                }
+            }
+
+            foreach (var unusedLocationKey in locationsCopy.Keys)
+            {
+                Logger.Warning("Unused location: " + unusedLocationKey);
+            }
         }
 
 

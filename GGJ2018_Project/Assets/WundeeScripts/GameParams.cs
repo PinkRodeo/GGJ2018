@@ -89,6 +89,8 @@ namespace Wundee
 	// Definition keys, for lookup in Json files
 	public static class D
 	{
+        public static string NAME = "name";
+
 		public static string TEXT = "text";
 		public static string PORTRAITKEY = "portraitKey";
 		public static string UNLOCKAXIS = "unlockAxis";

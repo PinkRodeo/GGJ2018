@@ -93,9 +93,9 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2085408617
+  m_SortingLayer: 2
+  m_SortingOrder: 2
 --- !u!33 &33021522063148058
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -127,11 +127,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0, y: 1}
-      - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.5877852, y: -0.80901706}
-      - {x: 0.58778536, y: -0.80901694}
-      - {x: 0.9510565, y: 0.30901712}
+    - - {x: -1.1208248, y: 2.0426283}
+      - {x: -1.4202394, y: -2.0890265}
+      - {x: 1.5235357, y: -2.086236}
+      - {x: 1.161231, y: 2.0060773}
+      - {x: 0.038757324, y: 1.8468933}
 --- !u!114 &114100427738494120
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fee8f7952b414d243a02478944d5290c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_LocationDefinitionKey: 
   m_TextMesh: {fileID: 114199105790336248}
 --- !u!114 &114199105790336248
 MonoBehaviour:
@@ -287,9 +288,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -2085408617
+  m_SortingLayer: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fd5b1b610dcc1874781c82950b919594, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
