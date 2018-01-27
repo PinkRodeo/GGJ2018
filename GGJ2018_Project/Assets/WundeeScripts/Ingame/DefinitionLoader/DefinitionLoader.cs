@@ -48,6 +48,11 @@ namespace Wundee
 			}
 		}
 
+        public Dictionary<string, TDefinition> GetCopy()
+        {
+            return new Dictionary<string, TDefinition>(_definitions); ;
+        }
+
 		public TDefinition this[string definitionKey]
 		{
 			get

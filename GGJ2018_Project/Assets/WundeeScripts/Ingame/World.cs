@@ -24,18 +24,34 @@ namespace Wundee
 
         private int _gold;
 
+        public Dictionary<string, Location> locations = new Dictionary<string, Location>();
+
         /// <summary>
         /// previousAmount, newAmount
         /// </summary>
         public System.Action<int, int> OnGoldChanged = delegate { };
 
-        public World()
+        private Game _game;
+        
+        public World(Game game)
 		{
-			var gameParams = Game.instance.@params;
+            _game = game;
 		}
 
+        public void Initialize()
+        {
+            var locationDefinitions = _game.definitions.locationDefinitions.GetCopy();
+            foreach (var locationKey in locationDefinitions.Keys)
+            {
+                locations.Add(locationKey, locationDefinitions[locationKey].GetConcreteType() as Location);
+            }
 
-		public void AddFlag(ushort flag)
+
+        }
+
+
+
+        public void AddFlag(ushort flag)
 		{
 			_worldFlags.Add(flag);
 		}

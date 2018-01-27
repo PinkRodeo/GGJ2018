@@ -9,8 +9,6 @@ namespace Wundee
 	{
 		public readonly StoryHolder storyHolder;
 
-        private double _timeOfPreviousUpdate;
-
 		private HashSet<ushort> _settlementFlags = new HashSet<ushort>();
 		public LocationDefinition definition;
 
@@ -32,10 +30,11 @@ namespace Wundee
 				audioClips[ii] = assets[ii] as AudioClip;
 			};
 
-			
-			var needParams = Game.instance.@params.needParams;
 
-			/*
+
+            /*
+			var needParams = Game.instance.@params.needParams;
+             
 			this.needs = new Need[needParams.needs.Length];
 			this.needsDictionary = new Dictionary<string, Need>(needParams.needs.Length);
 
@@ -46,10 +45,10 @@ namespace Wundee
 			}
 			*/
 
-			
-		}
 
-		public AudioClip[] GetAudioClips(){
+        }
+
+        public AudioClip[] GetAudioClips(){
 			return audioClips;
 		}
 
@@ -65,11 +64,7 @@ namespace Wundee
 		
 		public void Tick()
 		{
-			var deltaTime = Time.fixedGameTime - _timeOfPreviousUpdate;
 
-			storyHolder.Tick();
-
-			_timeOfPreviousUpdate = Time.fixedGameTime;
 		}
 
 		public void ExecuteEffectFromDefinition(ref Definition<Effect>[] effectDefinitions)

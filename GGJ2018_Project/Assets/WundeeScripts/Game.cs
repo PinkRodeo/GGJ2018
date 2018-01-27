@@ -53,7 +53,7 @@ namespace Wundee
 
 			Time.multiplier = gameParams.timeMultiplier;
 
-			this.world = new World();
+			this.world = new World(this);
 
 		}
 
@@ -63,6 +63,8 @@ namespace Wundee
 			{
 				definitions.ParseDefinitions();
 			}
+
+            world.Initialize();
 		}
 
 		public void Update(float dt)
