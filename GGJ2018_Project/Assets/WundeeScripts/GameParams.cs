@@ -99,7 +99,8 @@ namespace Wundee
 
 		public const string EFFECTS = "effects";
 		public const string CONDITIONS = "conditions";
-		public const string REWARDS = "rewards";
+        public const string ENABLED_CONDITIONS = "enabledConditions";
+        public const string REWARDS = "rewards";
 
 		public const string REWARDS_ON_START = "onStartRewards";
 		public const string REWARDS_ON_COMPLETE = "onCompleteRewards";

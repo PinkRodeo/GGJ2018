@@ -6,7 +6,8 @@ namespace Wundee.Stories
 		public StoryChoiceDefinition definition;
 
 		public Condition[] conditions;
-		public StoryNode parentStoryNode;
+        public Condition[] enabledConditions;
+        public StoryNode parentStoryNode;
 		public Effect[] rewards;
 	}
 

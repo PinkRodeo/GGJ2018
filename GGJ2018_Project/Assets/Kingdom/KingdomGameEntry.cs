@@ -7,12 +7,20 @@ using Wundee.Stories;
 
 namespace Kingdom
 {
-    public class ProofOfLife : WundeeUnity.GameEntry
+    public class KingdomGameEntry : WundeeUnity.GameEntry
     {
-        // Use this for initialization
-        public override void Start()
+        public static Game gameInstance;
+        
+        protected override void Awake()
         {
-            base.Start();
+            base.Awake();
+
+            gameInstance = game;
+        }
+
+        // Use this for initialization
+        public void Start()
+        {
             var location = new Location(game.definitions.locationDefinitions["PERSON_DEFAULT_01"]);
 
             var spyMessageDefinition = game.definitions.storyNodeDefinitions["SPY_TEST_1"];
@@ -25,7 +33,6 @@ namespace Kingdom
             {
                 Debug.Log(choice.definition.choiceText);
             }
-
         }
     }
 }

@@ -7,7 +7,29 @@ namespace Wundee
 	{
 		private HashSet<ushort> _worldFlags = new HashSet<ushort>();
 
-		public World()
+        public int gold
+        {
+            get
+            {
+                return _gold;
+            }
+            set
+            {
+                int previousValue = gold;
+                _gold = Math.Max(0, value);
+
+                OnGoldChanged(previousValue, _gold);
+            }
+        }
+
+        private int _gold;
+
+        /// <summary>
+        /// previousAmount, newAmount
+        /// </summary>
+        public System.Action<int, int> OnGoldChanged = delegate { };
+
+        public World()
 		{
 			var gameParams = Game.instance.@params;
 		}

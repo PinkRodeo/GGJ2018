@@ -8,21 +8,14 @@ namespace WundeeUnity
 		public Game game;
 		public string gameParamsKey = "default";
 
-		[Header("Temp Debug")] public GameObject dockObject;
+		//[Header("Temp Debug")] public GameObject dockObject;
 
-		protected void Awake()
+		protected virtual void Awake()
 		{
 			this.game = new Game(gameParamsKey, this);
-		}
 
-		// Use this for initialization
-		public virtual void Start()
-		{
-			game.Initialize();
-
-		}
-
-
+            game.Initialize();
+        }
 
 		// Update is called once per frame
 		protected void Update()
