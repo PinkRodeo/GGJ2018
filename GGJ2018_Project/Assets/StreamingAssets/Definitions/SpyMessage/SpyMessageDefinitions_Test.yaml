@@ -3,7 +3,7 @@
     text: "Welcome to this game. You want to retire as a spymaster. This location, %LOCATION, belongs to the %FACTION."
 
     storyChoices:
-      - text: "This is the first option"
+      - text: "Continue..."
         factionKey: "FACTION_THIEVES"      
         rewards: 
         - type: "ConversationEffect"
@@ -11,25 +11,10 @@
             conversation: "SPY_TEST_2"
 
   "SPY_TEST_2":
-    text: "Welcome to a new layer of hell"
+    text: "Try to make it to retirement."
 
     storyChoices:
-      - text: "Now we can make a game!"
-        rewards: 
-        - type: "ConversationEffect"
-          params: "SPY_TEST_3a"
-      - text: "Now we can go bananas!"
-        rewards: 
-        - type: "ConversationEffect"
-          params: "SPY_TEST_3b"
-
-
-  "SPY_TEST_3a":
-    text: "Jesus would be proud"
-
-  "SPY_TEST_3b":
-    text: "Satan would be proud"
-
+      - text: "Now read your spy reports."
 
   "SPY_MINOR_1":
     text: "‘A %FACTIONMEMBER is having a romance with a %RIVALFACTIONMEMBER!’"
