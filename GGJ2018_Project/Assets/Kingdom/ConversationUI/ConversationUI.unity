@@ -554,11 +554,6 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 224623110643165400, guid: ab3f689b2d6f9f04bb1045de137c1704,
         type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224623110643165400, guid: ab3f689b2d6f9f04bb1045de137c1704,
-        type: 2}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -683,6 +678,11 @@ Prefab:
         type: 2}
       propertyPath: m_Color.b
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224623110643165400, guid: ab3f689b2d6f9f04bb1045de137c1704,
+        type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab3f689b2d6f9f04bb1045de137c1704, type: 2}
@@ -8570,7 +8570,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 400, y: 0.0000021211386}
+  m_AnchoredPosition: {x: 0, y: 0.0000021211386}
   m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1352812911
