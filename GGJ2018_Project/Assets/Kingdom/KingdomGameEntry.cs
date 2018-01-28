@@ -57,7 +57,8 @@ namespace Kingdom
 
 		public virtual void Update()
 		{
-			if (m_ConversationUI != null && m_ConversationUI.IsVisible())
+			
+			if (m_ConversationUI != null && (m_ConversationUI.IsVisible() || m_ConversationUI.SealButton.gameObject.activeSelf))
 			{
 				m_GameTimer.SetPaused(true);
 				m_visibleCount = 0;
