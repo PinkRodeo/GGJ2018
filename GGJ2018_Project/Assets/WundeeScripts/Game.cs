@@ -10,7 +10,14 @@ namespace Wundee
 
 		private bool _isPlaying = true;
 
-		private WundeeUnity.GameEntry _mainMonoBehaviour;
+		private WundeeUnity.GameEntry _GameEntry;
+        public WundeeUnity.GameEntry gameEntry
+        {
+            get
+            {
+                return gameEntry;
+            }
+        }
 
 		public DataLoader definitions; 
 
@@ -60,7 +67,7 @@ namespace Wundee
 			ContentHelper.VerifyKey(gameParamsData, gameParamsKey, "PARAMS_READER");
 			gameParams.InitializeFromData(gameParamsData[gameParamsKey]);
 
-			this._mainMonoBehaviour = mainMonoBehaviour;
+			this._GameEntry = mainMonoBehaviour;
 
 			Time.gameTime = 0d;
 			Time.realTime = 0d;

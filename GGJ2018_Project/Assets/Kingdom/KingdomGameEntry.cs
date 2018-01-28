@@ -17,8 +17,7 @@ namespace Kingdom
 			public float Time;
 		}
 
-		[SerializeField]
-	    private TimeOfDay m_GameTimer;
+
 		[SerializeField]
 	    private List<TimelineEvent> m_Events = new List<TimelineEvent>();
 

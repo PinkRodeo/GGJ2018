@@ -10,7 +10,18 @@ namespace WundeeUnity
 
         public static Game gameInstance;
 
-		protected virtual void Awake()
+        [SerializeField]
+        protected TimeOfDay m_GameTimer;
+
+        public TimeOfDay gameTimer
+        {
+            get
+            {
+                return gameTimer;
+            }
+        }
+
+        protected virtual void Awake()
 		{
 			this.game = new Game(gameParamsKey, this);
             gameInstance = this.game;
