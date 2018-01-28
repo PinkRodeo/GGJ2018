@@ -23,8 +23,7 @@ namespace Kingdom
         {
             var game = KingdomGameEntry.gameInstance;
 
-            var location = new Location(game.definitions.locationDefinitions["LOC_SMUGGLERS_DEN"]);
-
+            /*
             var spyMessage = location.storyHolder.AddStoryNode("SPY_TEST_1");
 
             Debug.Log(spyMessage.definition.nodeText);
@@ -34,6 +33,7 @@ namespace Kingdom
             }
 
             SetToStoryNode(spyMessage);
+            */
         }
 
         public void SetToStoryNode(StoryNode storyNode)
