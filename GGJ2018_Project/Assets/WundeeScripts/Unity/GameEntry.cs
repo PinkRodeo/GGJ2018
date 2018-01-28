@@ -17,7 +17,7 @@ namespace WundeeUnity
         {
             get
             {
-                return gameTimer;
+                return m_GameTimer;
             }
         }
 
