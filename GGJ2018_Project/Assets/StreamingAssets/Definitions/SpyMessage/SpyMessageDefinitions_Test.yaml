@@ -87,3 +87,12 @@
   "SPY_MINOR_3":
     text: "‘A %FACTIONMEMBER is having a romance with a %RIVALFACTIONMEMBER!’"
 
+
+
+  "SPY_END_OF_DAY":
+    text: "As the sun rises, the rough low-life of the city returns to their nests"
+    storyChoices:
+    - text: "You prepare for the next day."
+      rewards: 
+      - type: "ResetDayEffect"
+        params: []

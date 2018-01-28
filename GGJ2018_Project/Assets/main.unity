@@ -159,9 +159,17 @@ MonoBehaviour:
   m_GameTimer: {fileID: 1518080938}
   m_Events:
   - RewardName: REWARD_OPENING
-    Time: 0.5
+    Time: 1000.5
   - RewardName: REWARD_SPYMESSAGE_MINOR_LOCATION_1
-    Time: 1.5
+    Time: 1001.5
+  - RewardName: 
+    Time: 0
+  - RewardName: 
+    Time: 0
+  - RewardName: 
+    Time: 0
+  - RewardName: REWARD_END_OF_DAY
+    Time: 5
 --- !u!1001 &71055129
 Prefab:
   m_ObjectHideFlags: 0
@@ -2105,6 +2113,8 @@ MonoBehaviour:
   m_TextMesh: {fileID: 1518080939}
   m_DayDuration: 30
   m_TimeOfDayMaterial: {fileID: 2100000, guid: 364c2ddf6b590b945a65b8517c2935c9, type: 2}
+  m_TimeOfDayMaterial_Simple: {fileID: 2100000, guid: 5e7b39c64bae24949b7c66ee79dc6497,
+    type: 2}
 --- !u!114 &1518080939
 MonoBehaviour:
   m_ObjectHideFlags: 0

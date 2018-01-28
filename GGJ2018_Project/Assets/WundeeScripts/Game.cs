@@ -15,7 +15,7 @@ namespace Wundee
         {
             get
             {
-                return gameEntry;
+                return _GameEntry;
             }
         }
 

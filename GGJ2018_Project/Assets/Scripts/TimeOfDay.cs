@@ -27,7 +27,10 @@ public class TimeOfDay : MonoBehaviour
     [SerializeField]
     private Material m_TimeOfDayMaterial;
 
-	private readonly List<TimeMarker> m_TimelineMarkers = new List<TimeMarker>();
+    [SerializeField]
+    private Material m_TimeOfDayMaterial_Simple;
+
+    private readonly List<TimeMarker> m_TimelineMarkers = new List<TimeMarker>();
 
     public virtual void Update()
 	{
@@ -47,9 +50,11 @@ public class TimeOfDay : MonoBehaviour
 		}
         
         m_TimeOfDayMaterial.SetFloat("_GradientTime", m_CurrentTime);
+        m_TimeOfDayMaterial_Simple.SetFloat("_GradientTime", m_CurrentTime);
+
     }
 
-	private void UpdateTimelineMarkers(float a_NewTime)
+    private void UpdateTimelineMarkers(float a_NewTime)
 	{
 		int markerCalls = 0;
 

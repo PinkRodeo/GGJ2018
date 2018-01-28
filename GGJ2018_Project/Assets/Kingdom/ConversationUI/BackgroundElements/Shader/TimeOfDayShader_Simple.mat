@@ -6,8 +6,8 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: TimeOfDayShader
-  m_Shader: {fileID: 4800000, guid: 0541642ec6c0a0e4d939bcf47969e205, type: 3}
+  m_Name: TimeOfDayShader_Simple
+  m_Shader: {fileID: 4800000, guid: 40b4616c82760a447a723584011eb0a0, type: 3}
   m_ShaderKeywords: ETC1_EXTERNAL_ALPHA
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
