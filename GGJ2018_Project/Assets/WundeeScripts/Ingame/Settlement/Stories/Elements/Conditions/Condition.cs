@@ -247,7 +247,7 @@ namespace Wundee.Stories
 
         public override bool Check()
         {
-            return _operator.CheckCondition(100f, _amount);
+            return _operator.CheckCondition(Game.instance.gameEntry.gameTimer.GetTimeProgress(), _amount);
         }
     }
 }
