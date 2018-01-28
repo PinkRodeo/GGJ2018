@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/main.unity
+    guid: bc127a0d13951bb49b6525bcf474a251
+  - enabled: 1
+    path: Assets/Kingdom/ConversationUI/ConversationUI.unity
+    guid: 62ac92b7a957e024384575d5e06c60ec
