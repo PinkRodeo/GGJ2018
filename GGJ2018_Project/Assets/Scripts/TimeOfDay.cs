@@ -41,7 +41,6 @@ public class TimeOfDay : MonoBehaviour
 			if (m_CurrentTime == 1)
 			{
 				OnDayPassed();
-				m_TextMesh.text = "Day over";
 				m_TimerPaused = true;
 			}
 
