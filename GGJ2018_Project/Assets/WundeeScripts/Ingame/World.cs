@@ -17,7 +17,7 @@ namespace Wundee
             }
             set
             {
-                int previousValue = gold;
+                int previousValue = _gold;
                 _gold = Math.Max(0, value);
 
                 OnGoldChanged(previousValue, _gold);
@@ -26,13 +26,35 @@ namespace Wundee
 
         private int _gold;
 
-        public Dictionary<string, Location> locations = new Dictionary<string, Location>();
-        public Dictionary<string, Faction> factions = new Dictionary<string, Faction>();
-
         /// <summary>
         /// previousAmount, newAmount
         /// </summary>
         public System.Action<int, int> OnGoldChanged = delegate { };
+
+        public int pawns
+        {
+            get
+            {
+                return _pawns;
+            }
+            set
+            {
+                int previousValue = _pawns;
+                _pawns = Math.Max(0, value);
+
+                OnPawnsChanged(previousValue, _pawns);
+            }
+        }
+        private int _pawns;
+        /// <summary>
+        /// previousAmount, newAmount
+        /// </summary>
+        public System.Action<int, int> OnPawnsChanged = delegate { };
+
+
+        public Dictionary<string, Location> locations = new Dictionary<string, Location>();
+        public Dictionary<string, Faction> factions = new Dictionary<string, Faction>();
+
 
         private Game _game;
         

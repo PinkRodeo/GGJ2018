@@ -15,12 +15,17 @@ namespace Wundee
 		public NeedParams needParams = new NeedParams();
 		public double timeMultiplier = 1d;
 
+        public int startingPawns;
+
 		public void InitializeFromData(JsonData gameParamData)
 		{
 			var constantsData = gameParamData[P.CONSTANTS];
 			var constantKeys = constantsData.Keys;
-			
-			foreach (var constantKey in constantKeys)
+
+            startingPawns = ContentHelper.ParseInt(gameParamData, P.STARTING_PAWNS, 9001);
+
+
+            foreach (var constantKey in constantKeys)
 			{
 				constants[constantKey] = ContentHelper.ParseDouble(constantsData, constantKey, 0d);
 			}
@@ -75,7 +80,9 @@ namespace Wundee
 
 	public static class P
 	{
-		public const string TIME_MULTIPLIER = "timeMultiplier";
+        public const string STARTING_PAWNS = "startingPawns";
+
+        public const string TIME_MULTIPLIER = "timeMultiplier";
 		public const string CONSTANTS = "constants";
 
 		public const string RANDOM = "RANDOM";
@@ -113,6 +120,8 @@ namespace Wundee
 
 
 		public const string REWARDS_ON_TUNE = "onTuneRewards";
+
+
 
 
 		// StoryElements
