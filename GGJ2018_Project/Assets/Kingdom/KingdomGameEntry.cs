@@ -20,7 +20,7 @@ namespace Kingdom
 		[SerializeField]
 	    private TimeOfDay m_GameTimer;
 		[SerializeField]
-	    private TimelineEvent[] m_Events;
+	    private TimelineEvent[] m_Events = {};
 
 	    private System.Action<object> m_TimelineCallback;
 
@@ -51,18 +51,17 @@ namespace Kingdom
 
 			
 		    
-		    Debug.Log(Game.instance.conversationUI);
 
 		    m_TimelineCallback += ExecuteEffect;
 			m_GameTimer.OnDayPassed += OnDayCompleted; 
-		    Game.instance.definitions.effectDefinitions[""].GetConcreteType(); //TODO: need some kind of callback to unpause game
+		    //Game.instance.definitions.effectDefinitions[""].GetConcreteType(); //TODO: need some kind of callback to unpause game
 
 		    foreach (var timelineEvent in m_Events)
 		    {
 			    m_GameTimer.AddTimelineMarker(timelineEvent.Time, m_TimelineCallback, timelineEvent.Name);
 			}
-
-		    StartCoroutine(DelayedStart);
+	
+		    StartCoroutine("DelayedStart");
 	    }
 
 	    private void ExecuteEffect(object Name)
@@ -80,7 +79,8 @@ namespace Kingdom
 	    private IEnumerator DelayedStart()
 	    {
 		    yield return new WaitForEndOfFrame();
+		    //Debug.Log(Game.instance.conversationUI);
 
-	    }
+		}
 	}
 }
