@@ -231,5 +231,24 @@ namespace Wundee.Stories
             return _operator.CheckCondition(parentStoryNode.parentLocation.world.factions[_targetFaction].reputation, _amount);
         }
     }
+
+    public class TimeOfDayCondition : Condition
+    {
+        private int _amount;
+        private Operator _operator;
+
+
+
+        public override void ParseParams(JsonData parameters)
+        {
+            _amount = ContentHelper.ParseInt(parameters, D.AMOUNT, 0);
+            _operator = ContentHelper.ParseOperator(parameters, Operator.Equals);
+        }
+
+        public override bool Check()
+        {
+            return _operator.CheckCondition(100f, _amount);
+        }
+    }
 }
 
