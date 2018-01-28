@@ -103,4 +103,15 @@ public class TimeOfDay : MonoBehaviour
 		m_TimelineMarkers.Add(marker);
 		m_TimelineMarkers.Sort((a, b) => a.Time.CompareTo(b.Time));
 	}
+
+	public void SetPaused(bool a_Paused)
+	{
+		m_TimerPaused = a_Paused;
+	}
+
+	public void RestartDayTimer()
+	{
+		m_TimerPaused = false;
+		m_CurrentTime = 0;
+	}
 }
