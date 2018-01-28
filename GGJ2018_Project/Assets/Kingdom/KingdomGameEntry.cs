@@ -77,8 +77,6 @@ namespace Kingdom
 		{
 			Game.instance.definitions.effectDefinitions[(string)Name].GetConcreteType().ExecuteEffect();
 			m_GameTimer.SetPaused(true);
-			StopCoroutine("DelayedButtonClick");
-			StartCoroutine("DelayedButtonClick");
 			m_visibleCount = 0;
 		}
 
