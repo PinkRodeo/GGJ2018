@@ -10,17 +10,17 @@ namespace Kingdom
 {
     public class KingdomGameEntry : WundeeUnity.GameEntry
     {
-		[SerializeField]
+		[System.Serializable]
 	    private struct TimelineEvent
 	    {
-		    public string Name;
-		    public float Time;
+		    public string RewardName;
+			public float Time;
 		}
 
 		[SerializeField]
 	    private TimeOfDay m_GameTimer;
 		[SerializeField]
-	    private TimelineEvent[] m_Events = {};
+	    private List<TimelineEvent> m_Events = new List<TimelineEvent>();
 
 	    private System.Action<object> m_TimelineCallback;
 
@@ -58,7 +58,7 @@ namespace Kingdom
 
 		    foreach (var timelineEvent in m_Events)
 		    {
-			    m_GameTimer.AddTimelineMarker(timelineEvent.Time, m_TimelineCallback, timelineEvent.Name);
+			    m_GameTimer.AddTimelineMarker(timelineEvent.Time, m_TimelineCallback, timelineEvent.RewardName);
 			}
 	
 		    StartCoroutine("DelayedStart");
