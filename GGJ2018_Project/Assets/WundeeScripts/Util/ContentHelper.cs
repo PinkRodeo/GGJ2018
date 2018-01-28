@@ -195,8 +195,39 @@ namespace Wundee
 			return defaultValue;
 		}
 
+        public static string[] ParseStringToArray(JsonData jsonData, string key, string defaultValue)
+        {
+            if (jsonData.Keys.Contains(key))
+            {
+                var value = jsonData[key];
+                if (value.IsString)
+                    return new string[1] { value.ToString() };
+                if (value.IsArray)
+                {
+                    var returnArray = new string[value.Count - 1];
+                    for (int i = 0; i < value.Count - 1; i++)
+                    {
+                        returnArray[i] = value[i].ToString();
+                    }
+                    return returnArray;
+                }
+                else
+                {
+                    Logger.Error("Tried parsing invalid string with key " + key + " and defaultvalue " + defaultValue);
 
-		public static int ParseNeedIndex(JsonData jsonData, string key)
+                    return new string[1] { defaultValue };
+                }
+            }
+            return new string[1] { defaultValue };
+        }
+
+        public static string DrawRandomString(string[] stringArray)
+        {
+            return (string)stringArray[R.Content.Next(0, stringArray.Length)];
+        }
+
+
+        public static int ParseNeedIndex(JsonData jsonData, string key)
 		{
 			if (!jsonData.Keys.Contains(key)) 
 				return -1;

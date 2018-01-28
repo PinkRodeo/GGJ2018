@@ -138,26 +138,26 @@ namespace Wundee.Stories
 
     public class ConversationEffect: Effect
     {
-        protected string _conversationKey;
-        protected string _locationKey;
+        protected string[] _conversationKey;
+        protected string[] _locationKey;
 
 
         public override void ParseParams(JsonData parameters)
         {
             if (parameters.IsString)
             {
-                _conversationKey = parameters.ToString();
+                _conversationKey = new string[1] { parameters.ToString() };
                 _locationKey = null;
             }
             else
             {
-                _conversationKey = ContentHelper.ParseString(parameters, D.CONVERSATION, "CONVERSATION_FALLBACK");
+                _conversationKey = ContentHelper.ParseStringToArray(parameters, D.CONVERSATION, "CONVERSATION_FALLBACK");
 
-                if (_conversationKey == "CONVERSATION_FALLBACK")
+                if (_conversationKey[0] == "CONVERSATION_FALLBACK")
                 {
                     Logger.Warning("Fallback conversation for: " + parentStoryNode.definition.definitionKey);
                 }
-                _locationKey = ContentHelper.ParseString(parameters, D.LOCATION, null);
+                _locationKey = ContentHelper.ParseStringToArray(parameters, D.LOCATION, null);
 
             }
         }
@@ -166,9 +166,10 @@ namespace Wundee.Stories
         {
             if (_locationKey == null)
             {
-                _locationKey = parentStoryNode.parentLocation.definition.definitionKey;
+                _locationKey = new string[1] { parentStoryNode.parentLocation.definition.definitionKey };
             }
-            Game.instance.conversationUI.SetToStoryNode(Game.instance.world.locations[_locationKey].storyHolder.AddStoryNode(_conversationKey));
+            
+            Game.instance.conversationUI.SetToStoryNode(Game.instance.world.locations[ContentHelper.DrawRandomString(_locationKey)].storyHolder.AddStoryNode(ContentHelper.DrawRandomString(_conversationKey)));
         }
     }
 
