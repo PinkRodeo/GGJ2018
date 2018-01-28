@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4193054674355224}
   - component: {fileID: 114473051167009440}
   m_Layer: 0
-  m_Name: Reputation
+  m_Name: StatusHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

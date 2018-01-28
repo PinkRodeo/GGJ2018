@@ -41,11 +41,11 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Background
-    uniqueID: 3333842675
-    locked: 0
   - name: Map
     uniqueID: 2209558679
+    locked: 0
+  - name: Background
+    uniqueID: 3333842675
     locked: 0
   - name: EventUI
     uniqueID: 375798263
