@@ -6,6 +6,8 @@ using UnityEngine.UI;
 using Wundee;
 using Wundee.Stories;
 
+using DG.Tweening;
+
 namespace Kingdom
 {
     public class ConversationUI : MonoBehaviour
@@ -17,6 +19,9 @@ namespace Kingdom
         public RectTransform buttonLayout;
 
         public GameObject choiceButtonPrefab;
+
+        [SerializeField]
+        private CanvasGroup m_CanvasGroup;
 
         // Use this for initialization
         void Start()
@@ -65,6 +70,16 @@ namespace Kingdom
                 
                 SetToStoryNode(spyMessage);
             }
+        }
+
+
+
+        public void SetVisible(bool p_IsVisible)
+        {
+            m_CanvasGroup.blocksRaycasts = p_IsVisible;
+            m_CanvasGroup.interactable = p_IsVisible;
+
+            var sequence = DOTween.Sequence();
         }
     }
 }

@@ -629,7 +629,7 @@ Prefab:
     - target: {fileID: 224623110643165400, guid: ab3f689b2d6f9f04bb1045de137c1704,
         type: 2}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 224623110643165400, guid: ab3f689b2d6f9f04bb1045de137c1704,
         type: 2}
@@ -8280,7 +8280,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -0.000030237123}
+  m_AnchoredPosition: {x: 0, y: 0.000008826649}
   m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1352812911
@@ -8424,6 +8424,7 @@ MonoBehaviour:
   buttonLayout: {fileID: 1352812910}
   choiceButtonPrefab: {fileID: 1477046065111634, guid: ab3f689b2d6f9f04bb1045de137c1704,
     type: 2}
+  m_CanvasGroup: {fileID: 1491306788}
 --- !u!225 &1491306788
 CanvasGroup:
   m_ObjectHideFlags: 0
