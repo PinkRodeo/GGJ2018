@@ -40,6 +40,7 @@ namespace Kingdom
 
         private AudioMixerSnapshot mainSnapshot;
         private AudioMixerSnapshot eventSnapshot;
+		private List<ConversationButtonUI> m_ButtonList = new List<ConversationButtonUI>();
 
         void Awake()
         {
@@ -77,16 +78,19 @@ namespace Kingdom
 
             MainText.text = storyNode.definition.nodeText;
 
-            // choices
-            
-            // TODO: clean up these children
-            buttonLayout.DetachChildren();
+			// choices
+
+			// TODO: clean up these children
+			m_ButtonList.Clear();
+
+			buttonLayout.DetachChildren();
             foreach (var choice in storyNode.storyChoices)
             {
                 var choiceButtonGO = Instantiate<GameObject>(choiceButtonPrefab, buttonLayout);
                 var choiceButtonUI = choiceButtonGO.GetComponent<ConversationButtonUI>();
+	            m_ButtonList.Add(choiceButtonUI);
 
-                choiceButtonUI.SetToStoryChoice(this, choice);
+				choiceButtonUI.SetToStoryChoice(this, choice);
             }
 
             SetVisible(true);
@@ -224,5 +228,10 @@ namespace Kingdom
         {
 
         }
+
+	    public List<ConversationButtonUI> GetChoiceButtons()
+	    {
+		    return m_ButtonList;
+	    }
     }
 }
