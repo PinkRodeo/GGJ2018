@@ -27,6 +27,9 @@ namespace Kingdom
         [SerializeField]
         private Color disabledTextColor;
 
+        public Image GuardIcon;
+        public Image ThiefIcon;
+        public Image WitchIcon;
 
         public State state;
         private ConversationUI m_ConversationUI;
@@ -46,6 +49,8 @@ namespace Kingdom
             m_ConversationUI = conversationUI;
             m_CurrentStoryChoice = storyChoice;
 
+            var factionIcon = GetCurrentFactionIcon(storyChoice);
+
             if ((storyChoice.conditions.CheckConditions() == false && storyChoice.conditions.Length > 0))
             {
                 choiceText.text = "Should not be visible, son";
@@ -64,6 +69,12 @@ namespace Kingdom
                 m_Button.onClick.AddListener(OnPressedDisabled);
 
                 gameObject.SetActive(true);
+
+                if (factionIcon != null)
+                {
+                    factionIcon.color = Color.black;
+                    factionIcon.gameObject.SetActive(true);
+                }
             }
             else
             {
@@ -74,9 +85,33 @@ namespace Kingdom
                 m_Button.onClick.AddListener(OnPressedValid);
 
                 gameObject.SetActive(true);
+
+                if (factionIcon != null)
+                {
+                    factionIcon.gameObject.SetActive(true);
+                }
             }
 
             
+        }
+
+        public Image GetCurrentFactionIcon(StoryChoice storyChoice)
+        {
+            GuardIcon.gameObject.SetActive(false);
+            ThiefIcon.gameObject.SetActive(false);
+            WitchIcon.gameObject.SetActive(false);
+
+            var factionKey = storyChoice.definition.factionKey;
+
+            if (factionKey == "FACTION_GUARDS")
+                return GuardIcon;
+            else if (factionKey == "FACTION_THIEVES")
+                return ThiefIcon;
+            else if (factionKey == "FACTION_WITCHES")
+                return WitchIcon;
+            else
+                return null;
+
         }
 
         private void OnPressedValid()

@@ -755,20 +755,47 @@ Prefab:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114664284008374442, guid: ab3f689b2d6f9f04bb1045de137c1704,
-        type: 2}
-      propertyPath: m_RaycastTarget
-      value: 0
+    - target: {fileID: 1329791769720764, guid: ab3f689b2d6f9f04bb1045de137c1704, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114313879348216836, guid: ab3f689b2d6f9f04bb1045de137c1704,
-        type: 2}
-      propertyPath: m_RaycastTarget
-      value: 0
+    - target: {fileID: 1598222226426642, guid: ab3f689b2d6f9f04bb1045de137c1704, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1470688363096702, guid: ab3f689b2d6f9f04bb1045de137c1704, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114266532729100756, guid: ab3f689b2d6f9f04bb1045de137c1704,
         type: 2}
-      propertyPath: m_RaycastTarget
+      propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114664284008374442, guid: ab3f689b2d6f9f04bb1045de137c1704,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114313879348216836, guid: ab3f689b2d6f9f04bb1045de137c1704,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114664284008374442, guid: ab3f689b2d6f9f04bb1045de137c1704,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114664284008374442, guid: ab3f689b2d6f9f04bb1045de137c1704,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114664284008374442, guid: ab3f689b2d6f9f04bb1045de137c1704,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ab3f689b2d6f9f04bb1045de137c1704, type: 2}
@@ -8715,7 +8742,7 @@ GameObject:
   - component: {fileID: 1144542139}
   - component: {fileID: 1144542138}
   m_Layer: 5
-  m_Name: Button
+  m_Name: WaxButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9237,7 +9264,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0000021211386}
+  m_AnchoredPosition: {x: 400, y: 0.0000021211386}
   m_SizeDelta: {x: 800, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1352812911

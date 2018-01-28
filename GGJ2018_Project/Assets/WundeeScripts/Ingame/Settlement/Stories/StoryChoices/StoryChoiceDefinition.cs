@@ -5,6 +5,7 @@ namespace Wundee.Stories
     public class StoryChoiceDefinition : Definition<StoryChoice>
 	{
         public string choiceText;
+        public string factionKey;
 
 		private Definition<Condition>[] _conditionDefinitions;
         private Definition<Condition>[] _disabledConditionDefinitions;
@@ -31,6 +32,8 @@ namespace Wundee.Stories
                 _rewardDefinitions = EffectDefinition.ParseDefinitions(jsonData[D.REWARDS], definitionKey);
             else
                 _rewardDefinitions = new Definition<Effect>[0];
+
+            factionKey = ContentHelper.ParseString(jsonData, D.FACTION_KEY, "");
         }
 
 		public override StoryChoice GetConcreteType(object parent = null)

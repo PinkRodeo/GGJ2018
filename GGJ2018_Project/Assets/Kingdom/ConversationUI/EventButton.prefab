@@ -113,9 +113,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 087a7fa7f72b46e4f8b2e2f5036b8dc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  choiceText: {fileID: 0}
+  choiceText: {fileID: 114832998857745598}
   regularTextColor: {r: 1, g: 1, b: 1, a: 1}
   disabledTextColor: {r: 1, g: 1, b: 1, a: 0.666}
+  GuardIcon: {fileID: 114313879348216836}
+  ThiefIcon: {fileID: 114664284008374442}
+  WitchIcon: {fileID: 114266532729100756}
   state: 0
   m_Button: {fileID: 114399515220736828}
 --- !u!114 &114062297518455442
