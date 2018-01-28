@@ -7,8 +7,8 @@
   "STORY_TEST_AFFECT_NEIGHBOURS":
     startNode:
       onStartRewards:
-        - { type: "AddSettlementFlag", params: { flag: "HAS_SPEED_BOOST" } }
-        - { type: "AddSettlementFlag", params: { flag: "AFFECT_NEIGHBOURS" } }
+        - { type: "AddLocationFlag", params: { flag: "HAS_SPEED_BOOST" } }
+        - { type: "AddLocationFlag", params: { flag: "AFFECT_NEIGHBOURS" } }
 
       effects:
         - { type: "NullEffect", params: { speed: 2000.0, targetLocation: {xDir: -1, yDir: -1}} }
@@ -16,9 +16,9 @@
           params: 
             range: 200
             conditions: 
-              - { type: "SettlementFlagCondition", params: { flag: "HAS_SPEED_BOOST", operator: "NotEquals"}}
+              - { type: "LocationFlagCondition", params: { flag: "HAS_SPEED_BOOST", operator: "NotEquals"}}
             effects:
-              - { type: "AddSettlementFlag", params: { flag: "HAS_SPEED_BOOST" } }
+              - { type: "AddLocationFlag", params: { flag: "HAS_SPEED_BOOST" } }
               - { type: "AddStoryEffect", params: { storyKey: "STORY_TEST_MOVE_ALOT" } }
 
 

@@ -3,33 +3,33 @@ using LitJson;
 
 namespace Wundee.Stories
 {
-	public class AddSettlementFlagEffect : Effect
+	public class AddLocationFlagEffect : Effect
 	{
-		private ushort _settlementFlag;
+		private ushort _locationFlag;
 
 		public override void ParseParams(JsonData parameters)
 		{
-			_settlementFlag = ContentHelper.ParseSettlementFlag(parameters);
+			_locationFlag = ContentHelper.ParseLocationFlag(parameters);
 		}
 
 		public override void ExecuteEffect()
 		{
-			parentStoryNode.parentLocation.AddFlag(_settlementFlag);
+			parentStoryNode.parentLocation.AddFlag(_locationFlag);
 		}
 	}
 
-	public class RemoveSettlementFlagEffect : Effect
+	public class RemoveLocationFlagEffect : Effect
 	{
-		private ushort _settlementFlag;
+		private ushort _locationFlag;
 
 		public override void ParseParams(JsonData parameters)
 		{
-			_settlementFlag = ContentHelper.ParseSettlementFlag(parameters);
+			_locationFlag = ContentHelper.ParseLocationFlag(parameters);
 		}
 
 		public override void ExecuteEffect()
 		{
-			parentStoryNode.parentLocation.RemoveFlag(_settlementFlag);
+			parentStoryNode.parentLocation.RemoveFlag(_locationFlag);
 		}
 	}
 
@@ -39,7 +39,7 @@ namespace Wundee.Stories
 
 		public override void ParseParams(JsonData parameters)
 		{
-			_worldFlag = ContentHelper.ParseSettlementFlag(parameters);
+			_worldFlag = ContentHelper.ParseLocationFlag(parameters);
 		}
 
 		public override void ExecuteEffect()
@@ -54,7 +54,7 @@ namespace Wundee.Stories
 
 		public override void ParseParams(JsonData parameters)
 		{
-			_worldFlag = ContentHelper.ParseSettlementFlag(parameters);
+			_worldFlag = ContentHelper.ParseLocationFlag(parameters);
 		}
 
 		public override void ExecuteEffect()

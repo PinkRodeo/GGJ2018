@@ -225,8 +225,8 @@ namespace Wundee
 			return OperatorExtensions.stringToOperator[jsonData[key].ToString()];
 		}
 
-		private static Dictionary<string, ushort> _settlementFlags = new Dictionary<string, ushort>(100); 
-		public static ushort ParseSettlementFlag(JsonData jsonData, string key = D.FLAG)
+		private static Dictionary<string, ushort> _locationFlags = new Dictionary<string, ushort>(100); 
+		public static ushort ParseLocationFlag(JsonData jsonData, string key = D.FLAG)
 		{
 			if (!jsonData.Keys.Contains(key))
 			{
@@ -235,18 +235,18 @@ namespace Wundee
 			}
 			var flag = jsonData[key].ToString();
 
-			return ParseSettlementFlag(flag);
+			return ParseLocationFlag(flag);
 
 		}
 
-		public static ushort ParseSettlementFlag(string flag)
+		public static ushort ParseLocationFlag(string flag)
 		{
-			if (_settlementFlags.ContainsKey(flag))
-				return _settlementFlags[flag];
+			if (_locationFlags.ContainsKey(flag))
+				return _locationFlags[flag];
 
-			var newFlagShort = (ushort)_settlementFlags.Count;
+			var newFlagShort = (ushort)_locationFlags.Count;
 
-			_settlementFlags[flag] = newFlagShort;
+			_locationFlags[flag] = newFlagShort;
 
 			return newFlagShort;
 		}
@@ -262,7 +262,7 @@ namespace Wundee
 			var flag = jsonData[key].ToString();
 
 			if (_worldFlags.ContainsKey(flag))
-				return _settlementFlags[flag];
+				return _locationFlags[flag];
 
 			var newFlagShort = (ushort)_worldFlags.Count;
 
