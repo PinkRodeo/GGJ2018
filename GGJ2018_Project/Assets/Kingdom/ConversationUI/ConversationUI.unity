@@ -9374,11 +9374,9 @@ MonoBehaviour:
   buttonLayout: {fileID: 1352812910}
   choiceButtonPrefab: {fileID: 1477046065111634, guid: ab3f689b2d6f9f04bb1045de137c1704,
     type: 2}
-  m_CanvasGroups:
-  - {fileID: 1491306788}
-  - {fileID: 1751884013}
-  - {fileID: 71943025}
-  - {fileID: 619846564}
+  m_CanvasGroups: []
+  m_MainCanvasGroup: {fileID: 1491306788}
+  m_FadeCanvasGroup: {fileID: 1751884013}
   m_AudioMixer: {fileID: 24100000, guid: ad77606e88c166c49abd72ecd9fc5b84, type: 2}
 --- !u!225 &1491306788
 CanvasGroup:

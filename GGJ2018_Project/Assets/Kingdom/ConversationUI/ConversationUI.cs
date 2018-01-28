@@ -30,6 +30,10 @@ namespace Kingdom
 
         [SerializeField]
         private CanvasGroup[] m_CanvasGroups;
+        [SerializeField]
+        private CanvasGroup m_MainCanvasGroup;
+        [SerializeField]
+        private CanvasGroup m_FadeCanvasGroup;
         
         [SerializeField]
         private AudioMixer m_AudioMixer;
@@ -101,32 +105,27 @@ namespace Kingdom
         }
 
 
-        private Tweener m_VisibilityTweener;
+        private Tweener m_VisibilityTweenerMain;
 
         public void SetVisible(bool p_IsVisible)
         {
+            m_MainCanvasGroup.blocksRaycasts = p_IsVisible;
+            m_MainCanvasGroup.interactable = p_IsVisible;
 
-            foreach (var canvasGroup in m_CanvasGroups)
-            {
-                canvasGroup.blocksRaycasts = p_IsVisible;
-                canvasGroup.interactable = p_IsVisible;
-            }
             
-            if (m_VisibilityTweener != null)
+            if (m_VisibilityTweenerMain != null)
             {
-                m_VisibilityTweener.Kill();
+                m_VisibilityTweenerMain.Kill();
+                m_VisibilityTweenerMain = null;
             }
 
             var targetAlpha = p_IsVisible ? 1.0f : 0.0f;
-            var currentAlpha = m_CanvasGroups[0].alpha;
+            var currentAlpha = m_MainCanvasGroup.alpha;
             var AlphaDif = Mathf.Abs(targetAlpha - currentAlpha);
 
-            m_VisibilityTweener = DOTween.To(() => m_CanvasGroups[0].alpha, x =>
+            m_VisibilityTweenerMain = DOTween.To(() => m_MainCanvasGroup.alpha, x =>
             {
-                foreach (var canvasGroup in m_CanvasGroups)
-                {
-                    canvasGroup.alpha = x;
-                }
+                m_MainCanvasGroup.alpha = x;
             }, targetAlpha, AlphaDif * 0.4f).SetEase(Ease.InCirc);
 
             if (p_IsVisible)
@@ -140,11 +139,46 @@ namespace Kingdom
             
             MainPanel.localPosition = new Vector3(0,0,0);
             SealButton.gameObject.SetActive(false);
+            SetVisibleFade(p_IsVisible);
+        }
 
+        private Tweener m_VisibilityTweenerBackground;
+
+        public void SetVisibleFade(bool p_IsVisible)
+        {
+            m_FadeCanvasGroup.blocksRaycasts = p_IsVisible;
+            m_FadeCanvasGroup.interactable = p_IsVisible;
+
+
+            if (m_VisibilityTweenerBackground != null)
+            {
+                m_VisibilityTweenerBackground.Kill();
+                m_VisibilityTweenerBackground = null;
+            }
+
+            var targetAlpha = p_IsVisible ? 1.0f : 0.0f;
+            var currentAlpha = m_FadeCanvasGroup.alpha;
+            var AlphaDif = Mathf.Abs(targetAlpha - currentAlpha);
+
+            m_VisibilityTweenerBackground = DOTween.To(() => m_FadeCanvasGroup.alpha, x =>
+            {
+                m_FadeCanvasGroup.alpha = x;
+            }, targetAlpha, AlphaDif * 0.4f).SetEase(Ease.InCirc);
+
+            if (p_IsVisible)
+            {
+                eventSnapshot.TransitionTo(AlphaDif);
+            }
+            else
+            {
+                mainSnapshot.TransitionTo(AlphaDif);
+            }
         }
 
         public void SetStartPosition()
         {
+            SetVisibleFade(false);
+
             MainPanel.localPosition = new Vector3(0, -800, 0);
 
             SealButton.enabled = true;
@@ -161,6 +195,9 @@ namespace Kingdom
                 m_ComeIntoViewTweener.Kill();
                 m_ComeIntoViewTweener = null;
             }
+
+            SetVisibleFade(true);
+
 
             SealButton.enabled = false;
 

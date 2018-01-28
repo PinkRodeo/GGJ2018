@@ -76,7 +76,6 @@ namespace Kingdom
 
         private void OnPressedValid()
         {
-            Debug.Log("Button is pressed");
             m_ConversationUI.SetVisible(false);
 
             m_CurrentStoryChoice.rewards.ExecuteEffects<Effect>();
@@ -85,7 +84,7 @@ namespace Kingdom
 
         private void OnPressedDisabled()
         {
-            Debug.Log("Button is disabled");
+
         }
     }
 
