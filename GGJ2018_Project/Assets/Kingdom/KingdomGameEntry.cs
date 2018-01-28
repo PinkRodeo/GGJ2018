@@ -27,28 +27,12 @@ namespace Kingdom
 
 		public void Start()
 		{
-			/*
-		    var location = new Location(game.definitions.locationDefinitions["PERSON_DEFAULT_01"]);
-
-		    var spyMessageDefinition = game.definitions.storyNodeDefinitions["SPY_TEST_1"];
-
-		    Debug.Log(spyMessageDefinition.nodeText);
-
-		    var spyMessage = spyMessageDefinition.GetConcreteType(null) as StoryNode;
-
-		    foreach (var choice in spyMessage.storyChoices)
-		    {
-		        Debug.Log(choice.definition.choiceText);
-		    }
-		    */
-
 			Scene scene = SceneManager.GetSceneByName("ConversationUI");
 
 			if (!scene.isLoaded)
 			{
 				SceneManager.LoadScene("ConversationUI", LoadSceneMode.Additive);
 			}
-
 
             Scene scene2 = SceneManager.GetSceneByName("ConversationUI");
 
@@ -57,11 +41,8 @@ namespace Kingdom
                 SceneManager.LoadScene("backgrounds", LoadSceneMode.Additive);
             }
 
-
-
             m_TimelineCallback += ExecuteEffect;
 			m_GameTimer.OnDayPassed += OnDayCompleted;
-			//Game.instance.definitions.effectDefinitions[""].GetConcreteType(); //TODO: need some kind of callback to unpause game
 
 			foreach (var timelineEvent in m_Events)
 			{
@@ -74,10 +55,29 @@ namespace Kingdom
 			StartCoroutine("DelayedStart");
 		}
 
+		public virtual void Update()
+		{
+			if (m_ConversationUI != null && m_ConversationUI.IsVisible())
+			{
+				m_GameTimer.SetPaused(true);
+				m_visibleCount = 0;
+			}
+			else
+			{
+				m_visibleCount++;
+				if (m_visibleCount > 30)
+				{
+					m_visibleCount = 0;
+					m_GameTimer.SetPaused(false);
+				}
+			}
+		}
+
 		private void ExecuteEffect(object Name)
 		{
 			Game.instance.definitions.effectDefinitions[(string)Name].GetConcreteType().ExecuteEffect();
 			m_GameTimer.SetPaused(true);
+			StopCoroutine("DelayedButtonClick");
 			StartCoroutine("DelayedButtonClick");
 			m_visibleCount = 0;
 		}
@@ -92,34 +92,6 @@ namespace Kingdom
 		{
 			yield return new WaitForEndOfFrame();
 			m_ConversationUI = Game.instance.conversationUI;
-		}
-
-		private IEnumerator DelayedButtonClick()
-		{
-			yield return new WaitForSeconds(1f);
-
-			bool finished = false;
-
-			if (!m_ConversationUI.IsVisible())
-			{
-				m_visibleCount++;
-
-				if (m_visibleCount > 1)
-				{
-					m_GameTimer.SetPaused(false);
-					finished = true;
-					m_visibleCount = 0;
-				}
-			}
-			else
-			{
-				m_visibleCount = 0;
-			}
-
-			if (!finished)
-			{
-				StartCoroutine("DelayedButtonClick");
-			}
 		}
 	}
 }
