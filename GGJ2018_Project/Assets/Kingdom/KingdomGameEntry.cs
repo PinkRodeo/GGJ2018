@@ -65,7 +65,10 @@ namespace Kingdom
 
 			foreach (var timelineEvent in m_Events)
 			{
-				m_GameTimer.AddTimelineMarker(timelineEvent.Time, m_TimelineCallback, timelineEvent.RewardName);
+				if (!string.IsNullOrEmpty(timelineEvent.RewardName))
+				{
+					m_GameTimer.AddTimelineMarker(timelineEvent.Time, m_TimelineCallback, timelineEvent.RewardName);
+				}
 			}
 
 			StartCoroutine("DelayedStart");
