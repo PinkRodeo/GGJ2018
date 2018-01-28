@@ -90,7 +90,7 @@ Shader "Kingdom/BackgroundShaderSimple"
 			fixed4 c = tex2D(_MainTex, IN.texcoord);
 
 
-			c.rgb = tex2D(_GradientMap, half2(_GradientTime, c.r));
+			c.rgb = tex2D(_GradientMap, float2(min(_GradientTime, 0.98), c.r));
 			
 			c.rgb *= IN.diff;
 

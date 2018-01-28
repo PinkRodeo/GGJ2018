@@ -250,6 +250,7 @@ namespace Kingdom
                 () => SealButton.gameObject.SetActive(false)
 			);
 
+            GetComponent<AudioSource>().Play();
         }
 
         public void SetSpyMessageMode()

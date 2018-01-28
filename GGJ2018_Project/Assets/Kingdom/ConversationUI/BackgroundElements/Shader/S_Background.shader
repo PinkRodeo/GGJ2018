@@ -90,7 +90,7 @@ Shader "Kingdom/BackgroundShader2"
 			fixed4 c = tex2D(_MainTex, IN.texcoord);
 
 
-			fixed4 backgroundColor = tex2D(_GradientMap, half2(_GradientTime, c.r));
+			fixed4 backgroundColor = tex2D(_GradientMap, float2(min(_GradientTime, 0.98), c.r));
 
 			c.rgb = lerp(backgroundColor.rgb * c.a, (c.g * _LineColor.rgb), c.g)  + c.b *_LightColor * _LightIntensity * pow(tex2D(_NoiseMap, half2(sin(_Time.x), cos(_Time.x)*3)* IN.texcoord ), 1.4);
 		

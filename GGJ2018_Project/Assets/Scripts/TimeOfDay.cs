@@ -41,17 +41,17 @@ public class TimeOfDay : MonoBehaviour
 			m_TextMesh.text = GetTimeOfDayFormatted();
 			UpdateTimelineMarkers(GetTimeOfDay());
 
-			if (m_CurrentTime == 1)
+            m_TimeOfDayMaterial.SetFloat("_GradientTime", m_CurrentTime);
+            m_TimeOfDayMaterial_Simple.SetFloat("_GradientTime", m_CurrentTime);
+
+
+            if (m_CurrentTime >= 1)
 			{
 				OnDayPassed();
 				m_TimerPaused = true;
 			}
 
-		}
-        
-        m_TimeOfDayMaterial.SetFloat("_GradientTime", m_CurrentTime);
-        m_TimeOfDayMaterial_Simple.SetFloat("_GradientTime", m_CurrentTime);
-
+        }
     }
 
     private void UpdateTimelineMarkers(float a_NewTime)
