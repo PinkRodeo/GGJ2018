@@ -209,8 +209,8 @@ namespace Kingdom
             }, new Vector3(0, 0, 0), 1.1f).SetEase(Ease.OutBounce);
 
             m_ComeIntoViewTweener.OnComplete(
-                () => SealButton.gameObject.active = false 
-            );
+                () => SealButton.gameObject.SetActive(false)
+			);
 
         }
 
