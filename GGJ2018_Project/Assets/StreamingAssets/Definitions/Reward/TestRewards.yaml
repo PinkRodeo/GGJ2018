@@ -37,14 +37,34 @@
             - type: "NullEffect"
               params: []
 
+
+  "REWARD_OPENING":
+    type: "StartSpyMessageEffect"
+    params: 
+      conversation: "SPY_TEST_1"
+      location: "LOC_SPYMASTERS_HOUSE"
+
   "REWARD_SPYMESSAGE_MINOR_LOCATION_1":
     type: "RandomEffect"
     params: 
       effects:
-      - type: "ConversationEffect"
+      - type: "StartSpyMessageEffect"
         params: 
-          conversation: "SPY_TEST_2"
+          conversation: "SPY_MINOR_1"
           location: ["LOC_BIG_HARBOR", "LOC_ST_PAULS_CATHEDRAL", "LOC_INDUSTRIAL_PARK", "LOC_WEAPONS_MERCHANT", "LOC_POST_OFFICE", "LOC_ORPHANAGE"]
+      - type: "StartSpyMessageEffect"
+        params: 
+          conversation: "SPY_MINOR_1"
+          location: ["LOC_BIG_HARBOR", "LOC_ST_PAULS_CATHEDRAL", "LOC_INDUSTRIAL_PARK", "LOC_WEAPONS_MERCHANT", "LOC_POST_OFFICE", "LOC_ORPHANAGE"]
+      - type: "StartSpyMessageEffect"
+        params: 
+          conversation: "SPY_MINOR_1"
+          location: ["LOC_BIG_HARBOR", "LOC_ST_PAULS_CATHEDRAL", "LOC_INDUSTRIAL_PARK", "LOC_WEAPONS_MERCHANT", "LOC_POST_OFFICE", "LOC_ORPHANAGE"]
+    
+
+
+
+
 
 
   "REWARD_SPYMESSAGE_CAPITAL_LOCATION_1":
@@ -56,4 +76,5 @@
           conversation: "SPY_TEST_2"
           location: ["LOC_SMUGGLERS_DEN", "LOC_GUARDS_TOWER", "LOC_WITCHES_MANSION"]
       
+
 

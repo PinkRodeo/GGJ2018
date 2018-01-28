@@ -1,17 +1,35 @@
 ---
   "FACTION_GUARDS":
     name: "Guards"
+    member: "Guard"
+    rivalFaction: "FACTION_THIEVES"
+
     startingReputation: 50
 
   "FACTION_THIEVES":
     name: "Thieves"
+    member: "Thief"
+    rivalFaction: "FACTION_WITCHES"
+    
     startingReputation: 50
 
   "FACTION_WITCHES":
     name: "Witches"
+    member: "Witch"
+    rivalFaction: "FACTION_GUARDS"
+    
     startingReputation: 50
 
   "FACTION_SPIES":
     name: "Spies"
+    member: "Spy"
+    rivalFaction: "FACTION_ROYALTY"
+    
     startingReputation: 50
 
+  "FACTION_ROYALTY":
+    name: "Royalty"
+    member: "Member of the court"
+    rivalFaction: "FACTION_SPIES"
+    
+    startingReputation: 50

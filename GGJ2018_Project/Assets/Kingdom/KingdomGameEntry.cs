@@ -50,9 +50,16 @@ namespace Kingdom
 			}
 
 
+            Scene scene2 = SceneManager.GetSceneByName("ConversationUI");
+
+            if (!scene2.isLoaded)
+            {
+                SceneManager.LoadScene("backgrounds", LoadSceneMode.Additive);
+            }
 
 
-			m_TimelineCallback += ExecuteEffect;
+
+            m_TimelineCallback += ExecuteEffect;
 			m_GameTimer.OnDayPassed += OnDayCompleted;
 			//Game.instance.definitions.effectDefinitions[""].GetConcreteType(); //TODO: need some kind of callback to unpause game
 

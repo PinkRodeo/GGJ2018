@@ -126,7 +126,7 @@ namespace Wundee.Stories
         {
             _amount = ContentHelper.ParseInt(parameters, D.AMOUNT, 0);
 
-            _targetFaction = ContentHelper.ParseString(parameters, D.FACTION_KEY, parentStoryNode.parentLocation.owningFaction.definition.definitionKey);
+            _targetFaction = ContentHelper.ParseString(parameters, D.FACTION_KEY, "TODO");
         }
 
         public override void ExecuteEffect()

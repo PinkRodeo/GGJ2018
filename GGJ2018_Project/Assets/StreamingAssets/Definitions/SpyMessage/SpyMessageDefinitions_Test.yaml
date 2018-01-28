@@ -1,28 +1,14 @@
 ---
   "SPY_TEST_1":
-    text: "Welcome to this game. You want to retire as a spymaster."
+    text: "Welcome to this game. You want to retire as a spymaster. This location, %LOCATION, belongs to the %FACTION."
 
     storyChoices:
       - text: "This is the first option"
         factionKey: "FACTION_THIEVES"      
         rewards: 
-        - type: "StartSpyMessageEffect"
+        - type: "ConversationEffect"
           params: 
             conversation: "SPY_TEST_2"
-            location: ["LOC_BIG_HARBOR", "LOC_ST_PAULS_CATHEDRAL", "LOC_INDUSTRIAL_PARK", "LOC_WEAPONS_MERCHANT", "LOC_POST_OFFICE", "LOC_ORPHANAGE"]
-        - type: "PawnEffect"
-          params: 
-            amount: 10
-        conditions: []
-      - text: "This is the second option"
-        factionKey: "FACTION_GUARDS"
-        rewards: []
-        enabledConditions: 
-        - type: "WorldFlagCondition"
-          params:
-            flag: "Nope"
-            operator: "Equals"
-
 
   "SPY_TEST_2":
     text: "Welcome to a new layer of hell"
@@ -43,3 +29,61 @@
 
   "SPY_TEST_3b":
     text: "Satan would be proud"
+
+
+  "SPY_MINOR_1":
+    text: "‘A %FACTIONMEMBER is having a romance with a %RIVALFACTIONMEMBER!’"
+    storyChoices:
+      - text: "Tell the Guards"
+        factionKey: "FACTION_GUARDS"
+        rewards: 
+        - type: "ConversationEffect"
+          params: "SPY_MINOR_1_GUARDS"
+      - text: "Tell the Thieves"
+        factionKey: "FACTION_THIEVES"
+        rewards: 
+        - type: "ConversationEffect"
+          params: "SPY_MINOR_1_THIEVES"
+      - text: "Tell the Witches"
+        factionKey: "FACTION_WITCHES"
+        rewards: 
+        - type: "ConversationEffect"
+          params: "SPY_MINOR_1_WITCHES"
+
+  "SPY_MINOR_1_GUARDS":
+    text: "The Guards are pleased with this information. This will aid them in their investigation."
+    storyChoices:
+    - text: "They are contend."
+      rewards: 
+      - type: "ReputationEffect"
+        params:
+          factionKey: "FACTION_GUARDS"
+          amount: 10
+
+  "SPY_MINOR_1_THIEVES":
+    text: "The Thieves are pleased with this information. The thieves in this town love a blackmail opportunity when it presents itself."
+    storyChoices:
+    - text: "They are contend."
+      rewards: 
+      - type: "ReputationEffect"
+        params:
+          factionKey: "FACTION_THIEVES"
+          amount: 10
+
+  "SPY_MINOR_1_WITCHES":
+    text: "The Witches are cackling with laughter. They love a good gossip."
+    storyChoices:
+    - text: "They are contend."
+      rewards: 
+      - type: "ReputationEffect"
+        params:
+          factionKey: "FACTION_WITCHES"
+          amount: 10
+
+
+  "SPY_MINOR_2":
+    text: "‘A %FACTIONMEMBER is having a romance with a %RIVALFACTIONMEMBER!’"
+
+  "SPY_MINOR_3":
+    text: "‘A %FACTIONMEMBER is having a romance with a %RIVALFACTIONMEMBER!’"
+
