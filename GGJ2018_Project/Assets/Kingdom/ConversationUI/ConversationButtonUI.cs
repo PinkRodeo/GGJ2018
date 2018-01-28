@@ -36,6 +36,11 @@ namespace Kingdom
 
         private StoryChoice m_CurrentStoryChoice;
 
+	    public Button Button
+	    {
+		    get { return m_Button; }
+	    }
+
         public void SetToStoryChoice(ConversationUI conversationUI, StoryChoice storyChoice)
         {
             m_ConversationUI = conversationUI;
