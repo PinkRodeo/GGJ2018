@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.57481706, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -2111,7 +2111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_TextMesh: {fileID: 1518080939}
-  m_DayDuration: 50
+  m_DayDuration: 10
   m_TimeOfDayMaterial: {fileID: 2100000, guid: 364c2ddf6b590b945a65b8517c2935c9, type: 2}
   m_TimeOfDayMaterial_Simple: {fileID: 2100000, guid: 5e7b39c64bae24949b7c66ee79dc6497,
     type: 2}
