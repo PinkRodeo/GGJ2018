@@ -156,6 +156,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameParamsKey: default
+  m_GameTimer: {fileID: 1518080938}
 --- !u!1001 &71055129
 Prefab:
   m_ObjectHideFlags: 0
