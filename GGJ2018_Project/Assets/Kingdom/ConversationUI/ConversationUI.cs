@@ -70,6 +70,11 @@ namespace Kingdom
             Invoke("DebugTest", 0.1f);
         }
 
+	    public bool IsVisible()
+	    {
+		    return m_FadeCanvasGroup.alpha > 0;
+	    }
+
         void DebugTest()
         {
             SetVisible(false);

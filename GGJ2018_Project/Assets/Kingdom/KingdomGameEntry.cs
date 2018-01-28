@@ -103,9 +103,8 @@ namespace Kingdom
 
 		private IEnumerator DelayedButtonClick()
 		{
-			yield return new WaitForSeconds(0.5f);
-
-			if (Game.instance.conversationUI.GetChoiceButtons().Count == 0)
+			yield return new WaitForSeconds(1f);
+			if (!m_ConversationUI.IsVisible())
 			{
 				m_Buttons.ForEach(button => button.Button.onClick.RemoveListener(ChoiceButtonClicked));
 				m_GameTimer.SetPaused(false);
