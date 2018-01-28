@@ -37,15 +37,23 @@
             - type: "NullEffect"
               params: []
 
-  "REWARD_SPYMESSAGE_1":
+  "REWARD_SPYMESSAGE_MINOR_LOCATION_1":
     type: "RandomEffect"
     params: 
       effects:
       - type: "ConversationEffect"
         params: 
           conversation: "SPY_TEST_2"
-          location: ""
-      - type: "ConversationEffect"
-        params: "SPY_TEST_2"
+          location: ["LOC_BIG_HARBOR", "LOC_ST_PAULS_CATHEDRAL", "LOC_INDUSTRIAL_PARK", "LOC_WEAPONS_MERCHANT", "LOC_POST_OFFICE", "LOC_ORPHANAGE"]
 
-  
+
+  "REWARD_SPYMESSAGE_CAPITAL_LOCATION_1":
+    type: "RandomEffect"
+    params: 
+      effects:
+      - type: "ConversationEffect"
+        params: 
+          conversation: "SPY_TEST_2"
+          location: ["LOC_SMUGGLERS_DEN", "LOC_GUARDS_TOWER", "LOC_WITCHES_MANSION"]
+      
+

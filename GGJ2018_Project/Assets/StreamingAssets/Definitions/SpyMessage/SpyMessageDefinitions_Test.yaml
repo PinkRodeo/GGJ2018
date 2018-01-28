@@ -5,10 +5,10 @@
     storyChoices:
       - text: "This is the first option"
         rewards: 
-        - type: "ConversationEffect"
+        - type: "StartSpyMessageEffect"
           params: 
             conversation: "SPY_TEST_2"
-            location: "LOC_SMUGGLERS_DEN"
+            location: ["LOC_BIG_HARBOR", "LOC_ST_PAULS_CATHEDRAL", "LOC_INDUSTRIAL_PARK", "LOC_WEAPONS_MERCHANT", "LOC_POST_OFFICE", "LOC_ORPHANAGE"]
         - type: "PawnEffect"
           params: 
             amount: 10

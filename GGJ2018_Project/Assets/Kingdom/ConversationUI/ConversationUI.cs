@@ -10,14 +10,18 @@ using Wundee.Stories;
 using DG.Tweening;
 
 using TMPro;
-
+using System;
 
 namespace Kingdom
 {
     public class ConversationUI : MonoBehaviour
     {
         [Header("Self")]
-        public TextMeshProUGUI conversationText;
+        public TextMeshProUGUI HeaderText;
+        public TextMeshProUGUI MainText;
+        public RectTransform MainPanel;
+
+        public Button SealButton;
 
         [Header("Choices")]
         public RectTransform buttonLayout;
@@ -44,6 +48,8 @@ namespace Kingdom
                 canvasGroup.blocksRaycasts = false;
                 canvasGroup.interactable = false;
             }
+
+            SealButton.onClick.AddListener(OnSealButtonClicked);
         }
 
         // Use this for initialization
@@ -61,10 +67,9 @@ namespace Kingdom
 
         public void SetToStoryNode(StoryNode storyNode)
         {
-            conversationText.text = 
-                "<style=\"Title\">" + storyNode.parentLocation.definition.name + 
-                "</style>\n" 
-                + storyNode.definition.nodeText;
+            HeaderText.text = "SPY REPORT - " + storyNode.parentLocation.definition.name;
+
+            MainText.text = storyNode.definition.nodeText;
 
             // choices
             
@@ -132,6 +137,53 @@ namespace Kingdom
             {
                 mainSnapshot.TransitionTo(AlphaDif);
             }
+            
+            MainPanel.localPosition = new Vector3(0,0,0);
+            SealButton.gameObject.SetActive(false);
+
+        }
+
+        public void SetStartPosition()
+        {
+            MainPanel.localPosition = new Vector3(0, -800, 0);
+
+            SealButton.enabled = true;
+            SealButton.gameObject.SetActive(true);
+        }
+
+        private Tweener m_ComeIntoViewTweener;
+
+
+        private void OnSealButtonClicked()
+        {
+            if (m_ComeIntoViewTweener != null)
+            {
+                m_ComeIntoViewTweener.Kill();
+                m_ComeIntoViewTweener = null;
+            }
+
+            SealButton.enabled = false;
+
+            m_ComeIntoViewTweener = DOTween.To(() => MainPanel.localPosition, x =>
+            {
+                MainPanel.localPosition = x;
+            }, new Vector3(0, 0, 0), 1.1f).SetEase(Ease.OutBounce);
+
+            m_ComeIntoViewTweener.OnComplete(
+                () => SealButton.gameObject.active = false 
+            );
+
+        }
+
+        public void SetSpyMessageMode()
+        {
+            
+
+        }
+
+        public void SetRegularMessageMode()
+        {
+
         }
     }
 }

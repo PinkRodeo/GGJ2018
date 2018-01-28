@@ -172,4 +172,26 @@ namespace Wundee.Stories
         }
     }
 
+    public class StartSpyMessageEffect : ConversationEffect
+    {
+        public override void ExecuteEffect()
+        {
+            base.ExecuteEffect();
+
+            Game.instance.conversationUI.SetSpyMessageMode();
+            Game.instance.conversationUI.SetStartPosition();
+        }
+    }
+
+    public class StartRegularMessageEffect : ConversationEffect
+    {
+        public override void ExecuteEffect()
+        {
+            base.ExecuteEffect();
+
+            Game.instance.conversationUI.SetRegularMessageMode();
+            Game.instance.conversationUI.SetStartPosition();
+        }
+    }
+
 }
