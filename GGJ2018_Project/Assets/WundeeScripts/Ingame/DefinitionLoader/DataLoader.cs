@@ -18,9 +18,11 @@ namespace Wundee
 {
 	public class DataLoader
 	{
-		public DefinitionLoader<LocationDefinition, Location> locationDefinitions; 
-        
-		public DefinitionLoader<StoryNodeDefinition, StoryNode> storyNodeDefinitions;
+		public DefinitionLoader<LocationDefinition, Location> locationDefinitions;
+        public DefinitionLoader<FactionDefinition, Faction> factionDefinitions;
+
+
+        public DefinitionLoader<StoryNodeDefinition, StoryNode> storyNodeDefinitions;
 		public DefinitionLoader<StoryChoiceDefinition, StoryChoice> storyChoiceDefinitions;
 
 		public DefinitionLoader<EffectDefinition, Effect> effectDefinitions;
@@ -37,8 +39,10 @@ namespace Wundee
 		public DataLoader()
 		{
 			locationDefinitions = new DefinitionLoader<LocationDefinition, Location>(this);
+            factionDefinitions = new DefinitionLoader<FactionDefinition, Faction>(this);
 
-			storyNodeDefinitions = new DefinitionLoader<StoryNodeDefinition, StoryNode>(this);
+
+            storyNodeDefinitions = new DefinitionLoader<StoryNodeDefinition, StoryNode>(this);
 			storyChoiceDefinitions = new DefinitionLoader<StoryChoiceDefinition, StoryChoice>(this);
 
 			effectDefinitions = new DefinitionLoader<EffectDefinition, Effect>(this);
@@ -80,8 +84,10 @@ namespace Wundee
 		public void ParseDefinitions()
 		{
 			locationDefinitions.AddFolder("Location");
+            factionDefinitions.AddFolder("Faction");
 
-			storyNodeDefinitions.AddFolder("StoryNode");
+
+            storyNodeDefinitions.AddFolder("StoryNode");
             storyNodeDefinitions.AddFolder("Conversation");
             storyNodeDefinitions.AddFolder("SpyMessage");
 

@@ -1,0 +1,13 @@
+---
+  "FACTION_GUARDS":
+    name: "Guards"
+    startingReputation: 50
+
+  "FACTION_THIEVES":
+    name: "Thieves"
+    startingReputation: 50
+
+  "FACTION_WITCHES":
+    name: "Witches"
+    startingReputation: 50
+
