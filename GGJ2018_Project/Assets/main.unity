@@ -226,6 +226,16 @@ Prefab:
       propertyPath: m_DigitType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114473051167009440, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_HUDType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473051167009440, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_Faction
+      value: FACTION_GUARDS
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33ec5454aeccc8349b1817a450389cb1, type: 2}
   m_IsPrefabParent: 0
@@ -403,6 +413,11 @@ Prefab:
         type: 2}
       propertyPath: m_textInfo.spaceCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473051167009440, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_HUDType
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33ec5454aeccc8349b1817a450389cb1, type: 2}
@@ -1075,6 +1090,11 @@ Prefab:
       propertyPath: m_textInfo.spaceCount
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114473051167009440, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_HUDType
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33ec5454aeccc8349b1817a450389cb1, type: 2}
   m_IsPrefabParent: 0
@@ -1349,6 +1369,21 @@ Prefab:
         type: 2}
       propertyPath: m_textInfo.wordCount
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114660956346586312, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114660956346586312, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_textInfo.characterCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114660956346586312, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33ec5454aeccc8349b1817a450389cb1, type: 2}
@@ -1761,6 +1796,16 @@ Prefab:
       propertyPath: m_DigitType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114473051167009440, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_HUDType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473051167009440, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_Faction
+      value: FACTION_THIEVES
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33ec5454aeccc8349b1817a450389cb1, type: 2}
   m_IsPrefabParent: 0
@@ -1838,6 +1883,16 @@ Prefab:
         type: 2}
       propertyPath: m_DigitType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473051167009440, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_HUDType
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473051167009440, guid: 33ec5454aeccc8349b1817a450389cb1,
+        type: 2}
+      propertyPath: m_Faction
+      value: FACTION_WITCHES
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 33ec5454aeccc8349b1817a450389cb1, type: 2}
