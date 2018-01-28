@@ -42,6 +42,9 @@ namespace Kingdom
         private AudioMixerSnapshot eventSnapshot;
 		private List<ConversationButtonUI> m_ButtonList = new List<ConversationButtonUI>();
 
+        public System.Action<string> OnLocationOpened = delegate { };
+        public System.Action<string> OnLocationClosed = delegate { };
+
         void Awake()
         {
             mainSnapshot = m_AudioMixer.FindSnapshot("Overworld");
@@ -63,17 +66,23 @@ namespace Kingdom
             var game = KingdomGameEntry.gameInstance;
 
             game.SetConversationUI(this);
-            
-           var spyMessage = game.world.locations["LOC_SPYMASTERS_HOUSE"].storyHolder.AddStoryNode("SPY_TEST_1");
 
-            
+            Invoke("DebugTest", 1.1f);
+        }
 
-           SetToStoryNode(spyMessage);
-            
+        void DebugTest()
+        {
+            var spyMessage = KingdomGameEntry.gameInstance.world.locations["LOC_SPYMASTERS_HOUSE"].storyHolder.AddStoryNode("SPY_TEST_1");
+
+
+
+            SetToStoryNode(spyMessage);
+
         }
 
         public void SetToStoryNode(StoryNode storyNode)
         {
+            m_CurrentStoryNode = storyNode;
             HeaderText.text = "SPY REPORT - " + storyNode.parentLocation.definition.name;
 
             MainText.text = storyNode.definition.nodeText;
@@ -146,6 +155,8 @@ namespace Kingdom
             MainPanel.localPosition = new Vector3(0,0,0);
             SealButton.gameObject.SetActive(false);
             SetVisibleFade(p_IsVisible);
+
+
         }
 
         private Tweener m_VisibilityTweenerBackground;
@@ -179,6 +190,15 @@ namespace Kingdom
             {
                 mainSnapshot.TransitionTo(AlphaDif);
             }
+
+            if (p_IsVisible)
+            {
+                OnLocationOpened(m_CurrentStoryNode.definition.definitionKey);
+            }
+            else
+            {
+                OnLocationClosed(m_CurrentStoryNode.definition.definitionKey);
+            }
         }
 
         public void SetStartPosition()
@@ -192,7 +212,7 @@ namespace Kingdom
         }
 
         private Tweener m_ComeIntoViewTweener;
-
+        private StoryNode m_CurrentStoryNode;
 
         private void OnSealButtonClicked()
         {
