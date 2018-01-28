@@ -1,4 +1,5 @@
 ﻿using LitJson;
+using Kingdom;
 
 
 namespace Wundee.Stories
@@ -124,20 +125,20 @@ namespace Wundee.Stories
 		}
 	}
 
-	public class SettlementFlagCondition : Condition
+	public class LocationFlagCondition : Condition
 	{
-		private ushort _settlementFlag;
+		private ushort _locationFlag;
 		private Operator @operator;
 
 		public override void ParseParams(JsonData parameters)
 		{
-			_settlementFlag = ContentHelper.ParseSettlementFlag(parameters);
+			_locationFlag = ContentHelper.ParseLocationFlag(parameters);
 			@operator = ContentHelper.ParseOperator(parameters, Operator.Equals);
 		}
 
 		public override bool Check()
 		{
-			var hasFlag = parentStoryNode.parentLocation.HasFlag(_settlementFlag);
+			var hasFlag = parentStoryNode.parentLocation.HasFlag(_locationFlag);
 
 			switch (@operator)
 			{
@@ -158,7 +159,7 @@ namespace Wundee.Stories
 
 		public override void ParseParams(JsonData parameters)
 		{
-			_worldFlag = ContentHelper.ParseSettlementFlag(parameters);
+			_worldFlag = ContentHelper.ParseLocationFlag(parameters);
 			@operator = ContentHelper.ParseOperator(parameters, Operator.Equals);
 		}
 
@@ -177,5 +178,58 @@ namespace Wundee.Stories
 			}
 		}
 	}
+
+    public class GoldCondition : Condition
+    {
+        private int _amount;
+        private Operator _operator;
+
+        public override void ParseParams(JsonData parameters)
+        {
+            _amount = ContentHelper.ParseInt(parameters, D.AMOUNT, 0);
+            _operator = ContentHelper.ParseOperator(parameters, Operator.Equals);
+        }
+
+        public override bool Check()
+        {
+            return _operator.CheckCondition(Game.instance.world.gold, _amount);
+        }
+    }
+
+    public class PawnsCondition : Condition
+    {
+        private int _amount;
+        private Operator _operator;
+
+        public override void ParseParams(JsonData parameters)
+        {
+            _amount = ContentHelper.ParseInt(parameters, D.AMOUNT, 0);
+            _operator = ContentHelper.ParseOperator(parameters, Operator.Equals);
+        }
+
+        public override bool Check()
+        {
+            return _operator.CheckCondition(Game.instance.world.pawns, _amount);
+        }
+    }
+
+    public class ReputationCondition : Condition
+    {
+        private int _amount;
+        private string _targetFaction;
+        private Operator _operator;
+
+        public override void ParseParams(JsonData parameters)
+        {
+            _amount = ContentHelper.ParseInt(parameters, D.AMOUNT, 0);
+            _operator = ContentHelper.ParseOperator(parameters, Operator.Equals);
+            _targetFaction = ContentHelper.ParseString(parameters, D.FACTION_KEY, parentStoryNode.parentLocation.owningFaction.definition.definitionKey);
+        }
+
+        public override bool Check()
+        {
+            return _operator.CheckCondition(parentStoryNode.parentLocation.world.factions[_targetFaction].reputation, _amount);
+        }
+    }
 }
 

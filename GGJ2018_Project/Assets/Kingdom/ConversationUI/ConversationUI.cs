@@ -64,7 +64,9 @@ namespace Kingdom
             game.SetConversationUI(this);
             
            var spyMessage = game.world.locations["LOC_SPYMASTERS_HOUSE"].storyHolder.AddStoryNode("SPY_TEST_1");
+
             
+
            SetToStoryNode(spyMessage);
             
         }

@@ -10,7 +10,7 @@ namespace Wundee
 	{
 		public readonly StoryHolder storyHolder;
 
-		private HashSet<ushort> _settlementFlags = new HashSet<ushort>();
+		private HashSet<ushort> _locationFlags = new HashSet<ushort>();
 		public LocationDefinition definition;
 
         /*
@@ -123,12 +123,12 @@ namespace Wundee
 
 		public void AddFlag(ushort flag)
 		{
-			_settlementFlags.Add(flag);
+			_locationFlags.Add(flag);
 		}
 
 		public void RemoveFlag(ushort flag)
 		{
-			_settlementFlags.RemoveWhere((ushort flagToTest) =>
+			_locationFlags.RemoveWhere((ushort flagToTest) =>
 			{
 				if (flagToTest == flag)
 					return true;
@@ -139,7 +139,7 @@ namespace Wundee
 
 		public bool HasFlag(ushort flag)
 		{
-			return _settlementFlags.Contains(flag);
+			return _locationFlags.Contains(flag);
 		}
 	}
 
