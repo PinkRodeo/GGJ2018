@@ -24,6 +24,7 @@ namespace Kingdom
 		private System.Action<object> m_TimelineCallback;
 		private ConversationUI m_ConversationUI;
 		private List<ConversationButtonUI> m_Buttons;
+		private int m_visibleCount;
 
 		public void Start()
 		{
@@ -79,6 +80,7 @@ namespace Kingdom
 			Game.instance.definitions.effectDefinitions[(string)Name].GetConcreteType().ExecuteEffect();
 			m_GameTimer.SetPaused(true);
 			BindButtonEvents();
+			StartCoroutine("DelayedButtonClick");
 		}
 
 		private void BindButtonEvents()
@@ -101,20 +103,36 @@ namespace Kingdom
 
 		private void ChoiceButtonClicked()
 		{
-			StartCoroutine("DelayedButtonClick");
+			//StartCoroutine("DelayedButtonClick");
 		}
 
 		private IEnumerator DelayedButtonClick()
 		{
 			yield return new WaitForSeconds(1f);
+
+			bool finished = false;
+
 			if (!m_ConversationUI.IsVisible())
 			{
-				m_Buttons.ForEach(button => button.Button.onClick.RemoveListener(ChoiceButtonClicked));
-				m_GameTimer.SetPaused(false);
+				m_visibleCount++;
+
+				if (m_visibleCount > 1)
+				{
+					m_Buttons.ForEach(button => button.Button.onClick.RemoveListener(ChoiceButtonClicked));
+					m_GameTimer.SetPaused(false);
+					finished = true;
+					m_visibleCount = 0;
+				}
 			}
 			else
 			{
 				BindButtonEvents();
+				m_visibleCount = 0;
+			}
+
+			if (!finished)
+			{
+				StartCoroutine("DelayedButtonClick");
 			}
 		}
 	}
