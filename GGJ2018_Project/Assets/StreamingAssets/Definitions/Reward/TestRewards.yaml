@@ -36,3 +36,16 @@
           effects: 
             - type: "NullEffect"
               params: []
+
+  "REWARD_SPYMESSAGE_1":
+    type: "RandomEffect"
+    params: 
+      effects:
+      - type: "ConversationEffect"
+        params: 
+          conversation: "SPY_TEST_2"
+          location: ""
+      - type: "ConversationEffect"
+        params: "SPY_TEST_2"
+
+  

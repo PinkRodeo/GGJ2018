@@ -3,7 +3,16 @@
     text: "Welcome to this game. You want to retire as a spymaster."
 
     storyChoices:
-      - "CHOICE_TEST_1_1"
+      - text: "This is the first option"
+        rewards: 
+        - type: "ConversationEffect"
+          params: 
+            conversation: "SPY_TEST_2"
+            location: "LOC_SMUGGLERS_DEN"
+        - type: "PawnEffect"
+          params: 
+            amount: 10
+        conditions: []
       - text: "This is the second option"
         rewards: []
         enabledConditions: 
