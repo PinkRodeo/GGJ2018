@@ -60,7 +60,21 @@ namespace Kingdom
             }
             else if (storyChoice.enabledConditions.CheckConditions() == false && storyChoice.enabledConditions.Length > 0)
             {
-                choiceText.text = storyChoice.definition.choiceText;
+                var rawMainText = storyChoice.definition.choiceText;
+                rawMainText = rawMainText.Replace("%FACTIONMEMBER", storyChoice.parentStoryNode.parentLocation.owningFaction.definition.memberName);
+
+                rawMainText = rawMainText.Replace("%FACTION", storyChoice.parentStoryNode.parentLocation.owningFaction.definition.name);
+
+                rawMainText = rawMainText.Replace("%RIVALFACTIONMEMBER", Game.instance.definitions.factionDefinitions[storyChoice.parentStoryNode.parentLocation.owningFaction.definition.rivalFaction].memberName);
+                rawMainText = rawMainText.Replace("%RIVALFACTION", Game.instance.definitions.factionDefinitions[storyChoice.parentStoryNode.parentLocation.owningFaction.definition.rivalFaction].name);
+
+
+                rawMainText = rawMainText.Replace("%LOCATION", storyChoice.parentStoryNode.parentLocation.definition.name);
+                rawMainText = rawMainText.Replace("%GOLD", Game.instance.world.gold.ToString());
+                rawMainText = rawMainText.Replace("%PAWNS", Game.instance.world.pawns.ToString());
+                rawMainText = rawMainText.Replace("%REPUTATION", storyChoice.parentStoryNode.parentLocation.owningFaction.reputation.ToString());
+
+                choiceText.text = rawMainText;
                 state = State.Disabled;
 
                 choiceText.fontStyle = FontStyles.Strikethrough;
@@ -78,7 +92,22 @@ namespace Kingdom
             }
             else
             {
-                choiceText.text = storyChoice.definition.choiceText;
+                var rawMainText = storyChoice.definition.choiceText;
+
+                rawMainText = rawMainText.Replace("%FACTIONMEMBER", storyChoice.parentStoryNode.parentLocation.owningFaction.definition.memberName);
+
+                rawMainText = rawMainText.Replace("%FACTION", storyChoice.parentStoryNode.parentLocation.owningFaction.definition.name);
+
+                rawMainText = rawMainText.Replace("%RIVALFACTIONMEMBER", Game.instance.definitions.factionDefinitions[storyChoice.parentStoryNode.parentLocation.owningFaction.definition.rivalFaction].memberName);
+                rawMainText = rawMainText.Replace("%RIVALFACTION", Game.instance.definitions.factionDefinitions[storyChoice.parentStoryNode.parentLocation.owningFaction.definition.rivalFaction].name);
+
+
+                rawMainText = rawMainText.Replace("%LOCATION", storyChoice.parentStoryNode.parentLocation.definition.name);
+                rawMainText = rawMainText.Replace("%GOLD", Game.instance.world.gold.ToString());
+                rawMainText = rawMainText.Replace("%PAWNS", Game.instance.world.pawns.ToString());
+                rawMainText = rawMainText.Replace("%REPUTATION", storyChoice.parentStoryNode.parentLocation.owningFaction.reputation.ToString());
+
+                choiceText.text = rawMainText;
                 state = State.Visible;
                 choiceText.color = regularTextColor;
 

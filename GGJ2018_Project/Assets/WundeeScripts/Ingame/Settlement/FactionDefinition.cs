@@ -10,6 +10,8 @@ namespace Wundee
         public int startingReputation;
 
         public string name;
+        public string memberName;
+        public string rivalFaction;
 
         public override void ParseDefinition(string definitionKey, JsonData jsonData)
         {
@@ -18,6 +20,10 @@ namespace Wundee
             var keys = jsonData.Keys;
 
             this.name = ContentHelper.ParseString(jsonData, D.NAME, definitionKey);
+            this.memberName = ContentHelper.ParseString(jsonData, "member", definitionKey);
+            this.rivalFaction = ContentHelper.ParseString(jsonData, "rivalFaction", definitionKey);
+
+
             this.startingReputation = ContentHelper.ParseInt(jsonData, D.STARTING_REPUTATION, 50);
         }
 

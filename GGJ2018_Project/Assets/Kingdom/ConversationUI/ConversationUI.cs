@@ -67,17 +67,12 @@ namespace Kingdom
 
             game.SetConversationUI(this);
 
-            Invoke("DebugTest", 1.1f);
+            Invoke("DebugTest", 0.1f);
         }
 
         void DebugTest()
         {
-            var spyMessage = KingdomGameEntry.gameInstance.world.locations["LOC_SPYMASTERS_HOUSE"].storyHolder.AddStoryNode("SPY_TEST_1");
-
-
-
-            SetToStoryNode(spyMessage);
-
+            SetVisible(false);
         }
 
         public void SetToStoryNode(StoryNode storyNode)
@@ -85,7 +80,20 @@ namespace Kingdom
             m_CurrentStoryNode = storyNode;
             HeaderText.text = "SPY REPORT - " + storyNode.parentLocation.definition.name;
 
-            MainText.text = storyNode.definition.nodeText;
+
+            var rawMainText = storyNode.definition.nodeText;
+            rawMainText = rawMainText.Replace("%FACTIONMEMBER", storyNode.parentLocation.owningFaction.definition.memberName);
+            rawMainText = rawMainText.Replace("%FACTION", storyNode.parentLocation.owningFaction.definition.name);
+
+            rawMainText = rawMainText.Replace("%RIVALFACTIONMEMBER", Game.instance.definitions.factionDefinitions[storyNode.parentLocation.owningFaction.definition.rivalFaction].memberName);
+            rawMainText = rawMainText.Replace("%RIVALFACTION", Game.instance.definitions.factionDefinitions[storyNode.parentLocation.owningFaction.definition.rivalFaction].name);
+
+            rawMainText = rawMainText.Replace("%LOCATION", storyNode.parentLocation.definition.name);
+            rawMainText = rawMainText.Replace("%GOLD", Game.instance.world.gold.ToString());
+            rawMainText = rawMainText.Replace("%PAWNS", Game.instance.world.pawns.ToString());
+            rawMainText = rawMainText.Replace("%REPUTATION", storyNode.parentLocation.owningFaction.reputation.ToString());
+            
+            MainText.text = rawMainText;
 
 			// choices
 
@@ -197,7 +205,8 @@ namespace Kingdom
             }
             else
             {
-                OnLocationClosed(m_CurrentStoryNode.definition.definitionKey);
+                if (m_CurrentStoryNode != null)
+                   OnLocationClosed(m_CurrentStoryNode.definition.definitionKey);
             }
         }
 

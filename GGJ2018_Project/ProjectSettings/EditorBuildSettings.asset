@@ -11,3 +11,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Kingdom/ConversationUI/ConversationUI.unity
     guid: 62ac92b7a957e024384575d5e06c60ec
+  - enabled: 1
+    path: Assets/backgrounds.unity
+    guid: 384977a5fab0776479ca8ab7536f107b
