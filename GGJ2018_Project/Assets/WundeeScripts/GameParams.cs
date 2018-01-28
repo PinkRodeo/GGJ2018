@@ -154,7 +154,10 @@ namespace Wundee
 		public const string HAS_FLAG = "hasFlag";
 
 
-	}
+        // Factions
+        public const string STARTING_REPUTATION = "startingReputation";
+
+    }
 
 	// Strings that are used to extend the definitionKey for definitions that are declared within its parent
 	public static class KEYS

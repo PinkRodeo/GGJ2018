@@ -27,6 +27,7 @@ namespace Wundee
         private int _gold;
 
         public Dictionary<string, Location> locations = new Dictionary<string, Location>();
+        public Dictionary<string, Faction> factions = new Dictionary<string, Faction>();
 
         /// <summary>
         /// previousAmount, newAmount
@@ -42,6 +43,7 @@ namespace Wundee
 
         public void Initialize()
         {
+            // instantiate the locations
             var locationDefinitions = _game.definitions.locationDefinitions.GetCopy();
             foreach (var locationKey in locationDefinitions.Keys)
             {
@@ -70,6 +72,14 @@ namespace Wundee
             {
                 Logger.Warning("Unused location: " + unusedLocationKey);
             }
+
+            // Instantiate the factions
+            var factionDefinitions = _game.definitions.factionDefinitions.GetCopy();
+            foreach (var factionKey in factionDefinitions.Keys)
+            {
+                factions.Add(factionKey, factionDefinitions[factionKey].GetConcreteType() as Faction);
+            }
+
         }
 
 

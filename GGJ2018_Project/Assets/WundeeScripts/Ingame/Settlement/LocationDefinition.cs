@@ -44,11 +44,11 @@ namespace Wundee
 		// parent == habitat
 		public override Location GetConcreteType(object parent = null)
 		{
-			var newPerson = new Location(this);
-			newPerson.ExecuteEffectFromDefinition(ref _onStartRewardDefinitions);
+			var newLocation = new Location(this);
+			newLocation.ExecuteEffectFromDefinition(ref _onStartRewardDefinitions);
 		
 
-			return newPerson;
+			return newLocation;
 		}
 	}
 }
