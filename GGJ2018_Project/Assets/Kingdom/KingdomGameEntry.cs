@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
 using UnityEngine.SceneManagement;
 using Wundee;
 using Wundee.Stories;
@@ -17,8 +18,7 @@ namespace Kingdom
 			public float Time;
 		}
 
-
-		[SerializeField]
+        [SerializeField]
 	    private List<TimelineEvent> m_Events = new List<TimelineEvent>();
 
 	    private System.Action<object> m_TimelineCallback;
