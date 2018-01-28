@@ -194,4 +194,16 @@ namespace Wundee.Stories
         }
     }
 
+
+    public class ResetDayEffect : Effect
+    {
+        public override void ParseParams(JsonData parameters)
+        {
+        }
+
+        public override void ExecuteEffect()
+        {
+            Game.instance.gameEntry.gameTimer.RestartDayTimer();
+        }
+    }
 }

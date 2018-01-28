@@ -77,4 +77,8 @@
           location: ["LOC_SMUGGLERS_DEN", "LOC_GUARDS_TOWER", "LOC_WITCHES_MANSION"]
       
 
-
+  "REWARD_END_OF_DAY":
+    type: "StartSpyMessageEffect"
+    params:
+      conversation: "SPY_END_OF_DAY"
+      location: "LOC_SPYMASTERS_HOUSE"
