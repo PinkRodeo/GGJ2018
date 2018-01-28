@@ -40,7 +40,10 @@ public class City : MonoBehaviour
 
 	private void OnMouseEnter()
 	{
-		m_TextMesh.gameObject.SetActive(true);
+        m_TextMesh.text = m_Location.definition.name + "\n" + m_Location.owningFaction.definition.name;
+
+
+        m_TextMesh.gameObject.SetActive(true);
 	}
 
 	private void OnMouseExit()
@@ -51,7 +54,6 @@ public class City : MonoBehaviour
     public void SetLocation(Location location)
     {
         m_Location = location;
-        m_TextMesh.text = location.definition.name;
     }
 
 	public void SetEventActive(bool a_Active)

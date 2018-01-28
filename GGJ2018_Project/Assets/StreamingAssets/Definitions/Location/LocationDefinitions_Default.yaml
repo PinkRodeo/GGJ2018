@@ -1,59 +1,69 @@
 ---
   "LOC_SPYMASTERS_HOUSE":
     name: "Spymaster's House"
+    factionKey: "FACTION_SPIES"
 
     flags: []
 
 
   "LOC_SMUGGLERS_DEN":
     name: "Smuggler's Den"
-    isFactionCapital: "FACTION_KEY"
+    factionKey: "FACTION_THIEVES"
+    isFactionCapital: true
 
     flags: []
 
 
   "LOC_BIG_HARBOR":
     name: "Big Harbor"
+    factionKey: "FACTION_THIEVES"
 
     flags: []
 
   "LOC_ST_PAULS_CATHEDRAL":
     name: "St. Paul's Cathedral"
+    factionKey: "FACTION_THIEVES"
 
     flags: []
 
   "LOC_GUARDS_TOWER":
     name: "Guard's Tower"
-    isFactionCapital: "FACTION_KEY"
+    factionKey: "FACTION_GUARDS"
+    isFactionCapital: true
 
     flags: []
 
   "LOC_INDUSTRIAL_PARK":
     name: "Industrial Park"
+    factionKey: "FACTION_GUARDS"
 
     flags: []
 
 
   "LOC_WEAPONS_MERCHANT":
     name: "Weapon's Merchant"
+    factionKey: "FACTION_GUARDS"
 
     flags: []
 
 
   "LOC_WITCHES_MANSION":
     name: "Witches' Mansion"
-    isFactionCapital: "FACTION_KEY"
+    factionKey: "FACTION_WITCHES"
+    isFactionCapital: true
 
     flags: []
 
   "LOC_POST_OFFICE":
     name: "The Post Office"
+    factionKey: "FACTION_WITCHES"
 
     flags: []
 
 
   "LOC_ORPHANAGE":
     name: "The Orphanage"
+    factionKey: "FACTION_WITCHES"
 
     flags: []
 

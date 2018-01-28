@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Wundee.Stories;
 using UnityEngine;
+using System;
 
 namespace Wundee
 {
@@ -12,9 +13,26 @@ namespace Wundee
 		private HashSet<ushort> _settlementFlags = new HashSet<ushort>();
 		public LocationDefinition definition;
 
+        /*
 		private AudioClip[] audioClips;
+        */
 
         private City _City;
+        private World _world;
+
+        public Faction owningFaction
+        {
+            get
+            {
+                if (_owningFaction == null)
+                {
+                    _owningFaction = _world.factions[definition.factionKey];
+                }
+
+                return _owningFaction;
+            }
+        }
+        private Faction _owningFaction = null;
 
 		public Location(LocationDefinition p_Definition)
 		{
@@ -22,6 +40,7 @@ namespace Wundee
 
 			this.storyHolder = new StoryHolder(this);
 
+            /*
 			string voiceFolder = "Voices/" + definition.voiceType;
 			Object[] assets = Resources.LoadAll (voiceFolder);
 			int ii;
@@ -31,7 +50,7 @@ namespace Wundee
 			for (ii = 0; ii < assets.Length; ii++){
 				audioClips[ii] = assets[ii] as AudioClip;
 			};
-
+            */
 
 
             /*
@@ -56,6 +75,7 @@ namespace Wundee
             city.SetLocation(this);
         }
 
+        /*
         public AudioClip[] GetAudioClips(){
 			return audioClips;
 		}
@@ -69,6 +89,7 @@ namespace Wundee
 
 			ExecuteEffectFromDefinition(ref this.definition._onTuneInRewardDefinitions);
 		}
+        */
 		
 		public void Tick()
 		{
@@ -81,7 +102,12 @@ namespace Wundee
 			effects.ExecuteEffects();
 		}
 
-		public bool CheckConditionFromDefinition(ref Definition<Condition>[] conditionDefinitions)
+        internal void SetWorld(World world)
+        {
+            _world = world;
+        }
+
+        public bool CheckConditionFromDefinition(ref Definition<Condition>[] conditionDefinitions)
 		{
 			var conditions = conditionDefinitions.GetConcreteTypes(storyHolder.lifeStoryNode);
 			return conditions.CheckConditions();

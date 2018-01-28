@@ -151,14 +151,9 @@ namespace Wundee
 		public const string FLAG = "flag";
 
 
-		// Location
-		public const string TARGET_LOCATION = "targetLocation";
+        // Location
+        public const string FACTION_KEY = "factionKey";
 
-		public const string X = "x";
-		public const string Y = "y";
-
-		public const string X_DIR = "xDir";
-		public const string Y_DIR = "yDir";
 
 		public const string HAS_FLAG = "hasFlag";
 

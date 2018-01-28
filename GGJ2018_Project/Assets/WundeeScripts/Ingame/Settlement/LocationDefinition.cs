@@ -14,6 +14,7 @@ namespace Wundee
 		public string portraitKey;
 
         public string name;
+        public string factionKey;
 
 
 		public override void ParseDefinition(string definitionKey, JsonData jsonData)
@@ -26,8 +27,10 @@ namespace Wundee
 			voiceVolume = ContentHelper.ParseFloat (jsonData, "voiceVolume", 1.0f);
 
             this.name = ContentHelper.ParseString(jsonData, D.NAME, definitionKey);
+            this.factionKey = ContentHelper.ParseString(jsonData, D.FACTION_KEY, "FACTION_GUARDS");
 
-			if (keys.Contains(D.REWARDS_ON_START))
+
+            if (keys.Contains(D.REWARDS_ON_START))
 				this._onStartRewardDefinitions = EffectDefinition.ParseDefinitions(jsonData[D.REWARDS_ON_START], definitionKey);
 			else
 				this._onStartRewardDefinitions = new Definition<Effect>[0];

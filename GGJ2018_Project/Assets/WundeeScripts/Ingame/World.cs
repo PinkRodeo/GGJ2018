@@ -69,7 +69,9 @@ namespace Wundee
             var locationDefinitions = _game.definitions.locationDefinitions.GetCopy();
             foreach (var locationKey in locationDefinitions.Keys)
             {
-                locations.Add(locationKey, locationDefinitions[locationKey].GetConcreteType() as Location);
+                var location = locationDefinitions[locationKey].GetConcreteType() as Location;
+                locations.Add(locationKey, location);
+                location.SetWorld(this);
             }
 
             var cities = GameObject.FindObjectsOfType<City>();

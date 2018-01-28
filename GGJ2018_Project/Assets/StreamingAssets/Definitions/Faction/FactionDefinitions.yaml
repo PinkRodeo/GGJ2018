@@ -11,3 +11,7 @@
     name: "Witches"
     startingReputation: 50
 
+  "FACTION_SPIES":
+    name: "Spies"
+    startingReputation: 50
+
