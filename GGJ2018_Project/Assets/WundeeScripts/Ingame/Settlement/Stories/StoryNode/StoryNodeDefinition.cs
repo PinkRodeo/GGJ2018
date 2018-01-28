@@ -24,10 +24,16 @@ namespace Wundee.Stories
 			else
 				this._effectDefinitions = new Definition<Effect>[0];
 
-			if (keys.Contains(D.STORYCHOICES))
-				this._storyTriggerDefinitions = StoryChoiceDefinition.ParseDefinitions(jsonData[D.STORYCHOICES], definitionKey);
-			else
-				this._storyTriggerDefinitions = new Definition<StoryChoice>[0];
+            if (keys.Contains(D.STORYCHOICES))
+                this._storyTriggerDefinitions = StoryChoiceDefinition.ParseDefinitions(jsonData[D.STORYCHOICES], definitionKey);
+            else
+            {
+                var fallbackDefinition = new StoryChoiceDefinition();
+                fallbackDefinition.ParseDefinition(definitionKey + "Dummy", new JsonData());
+                this._storyTriggerDefinitions = new Definition<StoryChoice>[1] { fallbackDefinition };
+
+             }
+                  
 
 			if (keys.Contains(D.REWARDS_ON_START))
 				this._onStartRewardDefinitions = EffectDefinition.ParseDefinitions(jsonData[D.REWARDS_ON_START], definitionKey);

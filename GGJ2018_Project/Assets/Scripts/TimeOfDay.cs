@@ -14,7 +14,7 @@ public class TimeOfDay : MonoBehaviour
 	[SerializeField]
 	private TextMeshPro m_TextMesh;
 	[SerializeField, Tooltip("Seconds real time")]
-	private float m_DayDuration = 10f;
+	private float m_DayDuration = 30f;
 
 	private float m_StartTime = 0;
 	private float m_EndTime = 7;
@@ -24,9 +24,12 @@ public class TimeOfDay : MonoBehaviour
 
 	public System.Action OnDayPassed = delegate { };
 
+    [SerializeField]
+    private Material m_TimeOfDayMaterial;
+
 	private readonly List<TimeMarker> m_TimelineMarkers = new List<TimeMarker>();
 
-	public virtual void Update()
+    public virtual void Update()
 	{
 		if (!m_TimerPaused)
 		{
@@ -43,7 +46,9 @@ public class TimeOfDay : MonoBehaviour
 			}
 
 		}
-	}
+        
+        m_TimeOfDayMaterial.SetFloat("_GradientTime", m_CurrentTime);
+    }
 
 	private void UpdateTimelineMarkers(float a_NewTime)
 	{

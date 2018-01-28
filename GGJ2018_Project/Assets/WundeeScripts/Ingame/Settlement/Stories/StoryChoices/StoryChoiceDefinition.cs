@@ -13,7 +13,7 @@ namespace Wundee.Stories
 
 		public override void ParseDefinition(string definitionKey, JsonData jsonData)
 		{
-            choiceText = ContentHelper.ParseString(jsonData, D.TEXT, "No Choice Text");
+            choiceText = ContentHelper.ParseString(jsonData, D.TEXT, "Continue...");
 
             var keys = jsonData.Keys;
 

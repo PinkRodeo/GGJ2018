@@ -16,13 +16,15 @@ namespace Wundee
 		public double timeMultiplier = 1d;
 
         public int startingPawns;
+        public int startingGold;
 
-		public void InitializeFromData(JsonData gameParamData)
+        public void InitializeFromData(JsonData gameParamData)
 		{
 			var constantsData = gameParamData[P.CONSTANTS];
 			var constantKeys = constantsData.Keys;
 
             startingPawns = ContentHelper.ParseInt(gameParamData, P.STARTING_PAWNS, 9001);
+            startingGold = ContentHelper.ParseInt(gameParamData, P.STARTING_GOLD, 9001);
 
 
             foreach (var constantKey in constantKeys)
@@ -81,6 +83,7 @@ namespace Wundee
 	public static class P
 	{
         public const string STARTING_PAWNS = "startingPawns";
+        public const string STARTING_GOLD = "startingGold";
 
         public const string TIME_MULTIPLIER = "timeMultiplier";
 		public const string CONSTANTS = "constants";
@@ -146,25 +149,24 @@ namespace Wundee
 
 		// StoryEffects
 		public const string STORY_KEY = "storyKey";
-
-		// Conditions
-		public const string FLAG = "flag";
+        public const string CONVERSATION = "conversation";
+        public const string LOCATION = "location";
+        // Conditions
+        public const string FLAG = "flag";
 
 
         // Location
-        public const string FACTION_KEY = "factionKey";
-
-
 		public const string HAS_FLAG = "hasFlag";
 
 
         // Factions
         public const string STARTING_REPUTATION = "startingReputation";
+        public const string FACTION_KEY = "factionKey";
 
     }
 
-	// Strings that are used to extend the definitionKey for definitions that are declared within its parent
-	public static class KEYS
+    // Strings that are used to extend the definitionKey for definitions that are declared within its parent
+    public static class KEYS
 	{
 		public const string STORYNODE = "_STORYNODE_";
 		public const string STORYTRIGGER = "_STORYTRIGGER_";

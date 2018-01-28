@@ -9,12 +9,15 @@ using Wundee.Stories;
 
 using DG.Tweening;
 
+using TMPro;
+
+
 namespace Kingdom
 {
     public class ConversationUI : MonoBehaviour
     {
         [Header("Self")]
-        public Text conversationText;
+        public TextMeshProUGUI conversationText;
 
         [Header("Choices")]
         public RectTransform buttonLayout;
@@ -22,8 +25,8 @@ namespace Kingdom
         public GameObject choiceButtonPrefab;
 
         [SerializeField]
-        private CanvasGroup m_CanvasGroup;
-
+        private CanvasGroup[] m_CanvasGroups;
+        
         [SerializeField]
         private AudioMixer m_AudioMixer;
 
@@ -35,9 +38,12 @@ namespace Kingdom
             mainSnapshot = m_AudioMixer.FindSnapshot("Overworld");
             eventSnapshot = m_AudioMixer.FindSnapshot("InEvent");
 
-            m_CanvasGroup.alpha = 0;
-            m_CanvasGroup.blocksRaycasts = false;
-            m_CanvasGroup.interactable = false;
+            foreach(var canvasGroup in m_CanvasGroups)
+            {
+                canvasGroup.alpha = 0;
+                canvasGroup.blocksRaycasts = false;
+                canvasGroup.interactable = false;
+            }
         }
 
         // Use this for initialization
@@ -45,17 +51,20 @@ namespace Kingdom
         {
             var game = KingdomGameEntry.gameInstance;
 
+            game.SetConversationUI(this);
             
+           var spyMessage = game.world.locations["LOC_SPYMASTERS_HOUSE"].storyHolder.AddStoryNode("SPY_TEST_1");
             
-            var spyMessage = game.world.locations["LOC_SMUGGLERS_DEN"].storyHolder.AddStoryNode("SPY_TEST_1");
-            
-            SetToStoryNode(spyMessage);
+           SetToStoryNode(spyMessage);
             
         }
 
         public void SetToStoryNode(StoryNode storyNode)
         {
-            conversationText.text = storyNode.definition.nodeText;
+            conversationText.text = 
+                "<style=\"Title\">" + storyNode.parentLocation.definition.name + 
+                "</style>\n" 
+                + storyNode.definition.nodeText;
 
             // choices
             
@@ -91,20 +100,29 @@ namespace Kingdom
 
         public void SetVisible(bool p_IsVisible)
         {
-            m_CanvasGroup.blocksRaycasts = p_IsVisible;
-            m_CanvasGroup.interactable = p_IsVisible;
 
+            foreach (var canvasGroup in m_CanvasGroups)
+            {
+                canvasGroup.blocksRaycasts = p_IsVisible;
+                canvasGroup.interactable = p_IsVisible;
+            }
+            
             if (m_VisibilityTweener != null)
             {
                 m_VisibilityTweener.Kill();
             }
 
             var targetAlpha = p_IsVisible ? 1.0f : 0.0f;
-            var currentAlpha = m_CanvasGroup.alpha;
+            var currentAlpha = m_CanvasGroups[0].alpha;
             var AlphaDif = Mathf.Abs(targetAlpha - currentAlpha);
 
-            m_VisibilityTweener = DOTween.To(() => m_CanvasGroup.alpha, x =>
-                  m_CanvasGroup.alpha = x, targetAlpha, AlphaDif * 0.3f).SetEase(Ease.InCirc);
+            m_VisibilityTweener = DOTween.To(() => m_CanvasGroups[0].alpha, x =>
+            {
+                foreach (var canvasGroup in m_CanvasGroups)
+                {
+                    canvasGroup.alpha = x;
+                }
+            }, targetAlpha, AlphaDif * 0.4f).SetEase(Ease.InCirc);
 
             if (p_IsVisible)
             {

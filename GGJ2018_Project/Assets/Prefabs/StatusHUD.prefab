@@ -117,8 +117,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1597216791664772}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 10.64, y: 5.89, z: 19.486}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4407047845540974}
   - {fileID: 4052653425739130}
@@ -347,7 +347,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 195896626cf2f0640834719f858815b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DigitType: 1
+  m_HUDType: 3
+  m_Faction: FACTION_WITCHES
   m_DigitMesh: {fileID: 114660956346586312}
 --- !u!114 &114660956346586312
 MonoBehaviour:
@@ -434,7 +435,7 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 9.587271, y: 2.5256767, z: 9.869014, w: 2.2028108}
+  m_margin: {x: 9.587271, y: 2.5256767, z: 9.159054, w: 2.2028108}
   m_textInfo:
     textComponent: {fileID: 114660956346586312}
     characterCount: 4
@@ -578,7 +579,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.05, y: 0.29}
+  m_AnchoredPosition: {x: -0.027, y: 0.28999996}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224818176771261344
@@ -596,6 +597,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.030999182, y: 0.022}
   m_SizeDelta: {x: 20, y: 5}
   m_Pivot: {x: 0.5, y: 0.5}

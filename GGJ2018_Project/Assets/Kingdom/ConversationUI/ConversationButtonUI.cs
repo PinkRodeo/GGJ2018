@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+using TMPro;
 
 using Wundee;
 using Wundee.Stories;
@@ -18,7 +19,15 @@ namespace Kingdom
             Hidden
         }
 
-        public Text choiceText;
+        [SerializeField]
+        public TextMeshProUGUI choiceText;
+
+        [SerializeField]
+        private Color regularTextColor;
+        [SerializeField]
+        private Color disabledTextColor;
+
+
         public State state;
         private ConversationUI m_ConversationUI;
 
@@ -37,15 +46,17 @@ namespace Kingdom
                 choiceText.text = "Should not be visible, son";
                 state = State.Hidden;
 
-                m_Button.onClick.AddListener(OnPressedDisabled);
-
-
                 gameObject.SetActive(false);
             }
             else if (storyChoice.enabledConditions.CheckConditions() == false && storyChoice.enabledConditions.Length > 0)
             {
-                choiceText.text = "Disabled" +  storyChoice.definition.choiceText;
+                choiceText.text = storyChoice.definition.choiceText;
                 state = State.Disabled;
+
+                choiceText.fontStyle = FontStyles.Strikethrough;
+                choiceText.color = disabledTextColor;
+
+                m_Button.onClick.AddListener(OnPressedDisabled);
 
                 gameObject.SetActive(true);
             }
@@ -53,6 +64,7 @@ namespace Kingdom
             {
                 choiceText.text = storyChoice.definition.choiceText;
                 state = State.Visible;
+                choiceText.color = regularTextColor;
 
                 m_Button.onClick.AddListener(OnPressedValid);
 
@@ -65,10 +77,10 @@ namespace Kingdom
         private void OnPressedValid()
         {
             Debug.Log("Button is pressed");
+            m_ConversationUI.SetVisible(false);
 
             m_CurrentStoryChoice.rewards.ExecuteEffects<Effect>();
 
-            m_ConversationUI.SetVisible(false);
         }
 
         private void OnPressedDisabled()

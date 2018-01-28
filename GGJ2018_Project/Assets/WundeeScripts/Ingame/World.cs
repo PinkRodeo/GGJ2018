@@ -104,6 +104,9 @@ namespace Wundee
                 factions.Add(factionKey, factionDefinitions[factionKey].GetConcreteType() as Faction);
             }
 
+
+            _gold = _game.@params.startingGold;
+            _pawns = _game.@params.startingPawns;
         }
 
 

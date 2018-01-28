@@ -1,6 +1,6 @@
 ---
   "SPY_TEST_1":
-    text: "Spy Message Text"
+    text: "Welcome to this game. You want to retire as a spymaster."
 
     storyChoices:
       - "CHOICE_TEST_1_1"
@@ -11,3 +11,24 @@
           params:
             flag: "Nope"
             operator: "Equals"
+
+
+  "SPY_TEST_2":
+    text: "Welcome to a new layer of hell"
+
+    storyChoices:
+      - text: "Now we can make a game!"
+        rewards: 
+        - type: "ConversationEffect"
+          params: "SPY_TEST_3a"
+      - text: "Now we can go bananas!"
+        rewards: 
+        - type: "ConversationEffect"
+          params: "SPY_TEST_3b"
+
+
+  "SPY_TEST_3a":
+    text: "Jesus would be proud"
+
+  "SPY_TEST_3b":
+    text: "Satan would be proud"

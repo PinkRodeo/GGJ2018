@@ -1,4 +1,7 @@
 ﻿
+using System;
+using Kingdom;
+
 namespace Wundee
 {
 	public class Game
@@ -28,6 +31,17 @@ namespace Wundee
 		{
 			get { return _isPlaying; }
 		}
+
+
+        public ConversationUI conversationUI
+        {
+            get
+            {
+                return m_ConversationUI;
+            }
+        }
+        private ConversationUI m_ConversationUI;
+
 
 		public bool reloadGame = false;
 
@@ -67,7 +81,12 @@ namespace Wundee
             world.Initialize();
 		}
 
-		public void Update(float dt)
+        public void SetConversationUI(ConversationUI conversationUI)
+        {
+            m_ConversationUI = conversationUI;
+        }
+
+        public void Update(float dt)
 		{
 			Time.dt = (float)(dt * Time.multiplier);
 

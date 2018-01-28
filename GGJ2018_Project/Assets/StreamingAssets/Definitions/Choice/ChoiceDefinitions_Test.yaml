@@ -1,5 +1,10 @@
 ---
   "CHOICE_TEST_1_1":
     text: "This is the first option"
-    rewards: []
+    rewards: 
+    - type: "ConversationEffect"
+      params: "SPY_TEST_2"
+    - type: "PawnEffect"
+      params: 
+        amount: 10
     conditions: []

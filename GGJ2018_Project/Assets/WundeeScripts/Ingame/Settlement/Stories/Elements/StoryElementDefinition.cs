@@ -30,6 +30,7 @@ namespace Wundee.Stories
 
 			masterCopy.definition = this;
 
+            
 			var paramsObject = jsonData[D.PARAMS];
 			if (paramsObject != null)
 			{

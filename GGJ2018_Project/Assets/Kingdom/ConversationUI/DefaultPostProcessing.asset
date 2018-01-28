@@ -71,11 +71,11 @@ MonoBehaviour:
   depthOfField:
     m_Enabled: 0
     m_Settings:
-      focusDistance: 10
-      aperture: 5.6
-      focalLength: 50
+      focusDistance: 550
+      aperture: 0.1
+      focalLength: 93
       useCameraFov: 0
-      kernelSize: 1
+      kernelSize: 3
   motionBlur:
     m_Enabled: 0
     m_Settings:
@@ -307,9 +307,9 @@ MonoBehaviour:
   dithering:
     m_Enabled: 0
   monitors:
-    currentMonitorID: 0
+    currentMonitorID: 1
     refreshOnPlay: 0
-    histogramMode: 3
+    histogramMode: 4
     waveformExposure: 0.12
     waveformY: 0
     waveformR: 1

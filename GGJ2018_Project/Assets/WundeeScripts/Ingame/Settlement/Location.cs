@@ -18,6 +18,14 @@ namespace Wundee
         */
 
         private City _City;
+
+        public World world
+        {
+            get
+            {
+                return _world;
+            }
+        }
         private World _world;
 
         public Faction owningFaction

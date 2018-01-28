@@ -9,7 +9,8 @@
         WORLD_HEIGHT: 900*WORLD_SCALE
 
 
-  startingPawns: 30
+    startingPawns: 30
+    startingGold: 100
     
 
 

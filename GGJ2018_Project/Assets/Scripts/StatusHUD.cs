@@ -31,11 +31,11 @@ public class StatusHUD : MonoBehaviour
 				break;
 			case HUDType.Gold:
 				Game.instance.world.OnGoldChanged += SetValue;
-				SetValue(0, Game.instance.world.gold);
+				SetValue(Game.instance.world.gold, Game.instance.world.gold);
 				break;
 			case HUDType.Pawns:
 				Game.instance.world.OnPawnsChanged += SetValue;
-				SetValue(0, Game.instance.world.pawns);
+				SetValue(Game.instance.world.pawns, Game.instance.world.pawns);
 				break;
 			case HUDType.Reputation:
 				Game.instance.world.factions[m_Faction].OnReputationChanged += SetValue;
