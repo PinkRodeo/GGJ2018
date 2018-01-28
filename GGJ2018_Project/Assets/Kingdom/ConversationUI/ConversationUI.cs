@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.UI;
 
 using Wundee;
@@ -23,22 +24,33 @@ namespace Kingdom
         [SerializeField]
         private CanvasGroup m_CanvasGroup;
 
+        [SerializeField]
+        private AudioMixer m_AudioMixer;
+
+        private AudioMixerSnapshot mainSnapshot;
+        private AudioMixerSnapshot eventSnapshot;
+
+        void Awake()
+        {
+            mainSnapshot = m_AudioMixer.FindSnapshot("Overworld");
+            eventSnapshot = m_AudioMixer.FindSnapshot("InEvent");
+
+            m_CanvasGroup.alpha = 0;
+            m_CanvasGroup.blocksRaycasts = false;
+            m_CanvasGroup.interactable = false;
+        }
+
         // Use this for initialization
         void Start()
         {
             var game = KingdomGameEntry.gameInstance;
 
-            /*
-            var spyMessage = location.storyHolder.AddStoryNode("SPY_TEST_1");
-
-            Debug.Log(spyMessage.definition.nodeText);
-            foreach (var choice in spyMessage.storyChoices)
-            {
-                Debug.Log(choice.definition.choiceText);
-            }
-
+            
+            
+            var spyMessage = game.world.locations["LOC_SMUGGLERS_DEN"].storyHolder.AddStoryNode("SPY_TEST_1");
+            
             SetToStoryNode(spyMessage);
-            */
+            
         }
 
         public void SetToStoryNode(StoryNode storyNode)
@@ -53,9 +65,11 @@ namespace Kingdom
             {
                 var choiceButtonGO = Instantiate<GameObject>(choiceButtonPrefab, buttonLayout);
                 var choiceButtonUI = choiceButtonGO.GetComponent<ConversationButtonUI>();
-                choiceButtonUI.SetToStoryChoice(choice);
+
+                choiceButtonUI.SetToStoryChoice(this, choice);
             }
 
+            SetVisible(true);
         }
 
         // Update is called once per frame
@@ -73,13 +87,33 @@ namespace Kingdom
         }
 
 
+        private Tweener m_VisibilityTweener;
 
         public void SetVisible(bool p_IsVisible)
         {
             m_CanvasGroup.blocksRaycasts = p_IsVisible;
             m_CanvasGroup.interactable = p_IsVisible;
 
-            var sequence = DOTween.Sequence();
+            if (m_VisibilityTweener != null)
+            {
+                m_VisibilityTweener.Kill();
+            }
+
+            var targetAlpha = p_IsVisible ? 1.0f : 0.0f;
+            var currentAlpha = m_CanvasGroup.alpha;
+            var AlphaDif = Mathf.Abs(targetAlpha - currentAlpha);
+
+            m_VisibilityTweener = DOTween.To(() => m_CanvasGroup.alpha, x =>
+                  m_CanvasGroup.alpha = x, targetAlpha, AlphaDif * 0.3f).SetEase(Ease.InCirc);
+
+            if (p_IsVisible)
+            {
+                eventSnapshot.TransitionTo(AlphaDif);
+            }
+            else
+            {
+                mainSnapshot.TransitionTo(AlphaDif);
+            }
         }
     }
 }

@@ -20,15 +20,25 @@ namespace Kingdom
 
         public Text choiceText;
         public State state;
-        
+        private ConversationUI m_ConversationUI;
 
+        [SerializeField]
+        private Button m_Button;
 
-        public void SetToStoryChoice(StoryChoice storyChoice)
+        private StoryChoice m_CurrentStoryChoice;
+
+        public void SetToStoryChoice(ConversationUI conversationUI, StoryChoice storyChoice)
         {
+            m_ConversationUI = conversationUI;
+            m_CurrentStoryChoice = storyChoice;
+
             if ((storyChoice.conditions.CheckConditions() == false && storyChoice.conditions.Length > 0))
             {
                 choiceText.text = "Should not be visible, son";
                 state = State.Hidden;
+
+                m_Button.onClick.AddListener(OnPressedDisabled);
+
 
                 gameObject.SetActive(false);
             }
@@ -44,8 +54,26 @@ namespace Kingdom
                 choiceText.text = storyChoice.definition.choiceText;
                 state = State.Visible;
 
+                m_Button.onClick.AddListener(OnPressedValid);
+
                 gameObject.SetActive(true);
             }
+
+            
+        }
+
+        private void OnPressedValid()
+        {
+            Debug.Log("Button is pressed");
+
+            m_CurrentStoryChoice.rewards.ExecuteEffects<Effect>();
+
+            m_ConversationUI.SetVisible(false);
+        }
+
+        private void OnPressedDisabled()
+        {
+            Debug.Log("Button is disabled");
         }
     }
 
