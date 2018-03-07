@@ -164,11 +164,17 @@ namespace Wundee.Stories
 
         public override void ExecuteEffect()
         {
-            if (_locationKey == null)
+            if (_locationKey == null || _locationKey[0] == null)
             {
                 _locationKey = new string[1] { parentStoryNode.parentLocation.definition.definitionKey };
             }
-            
+
+            if (_locationKey == null || _locationKey[0] == null)
+            {
+                Logger.Warning("Major mistake in " + definition.definitionKey);
+                return;
+            }
+
             Game.instance.conversationUI.SetToStoryNode(Game.instance.world.locations[ContentHelper.DrawRandomString(_locationKey)].storyHolder.AddStoryNode(ContentHelper.DrawRandomString(_conversationKey)));
         }
     }
