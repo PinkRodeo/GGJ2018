@@ -15,9 +15,30 @@
 			
 			var line = stackTraceFrame.GetFileLineNumber();
 			var method = stackTraceFrame.GetMethod();
-			
-			UnityEngine.Debug.Log(string.Format(LOG_TEXT, method, line, message));
-		}
+
+            if (message.GetType().IsArray)
+            {
+                string arrayMessage = "array[";
+                foreach (System.Object obj in message as System.Object[])
+                {
+                    if (obj == null)
+                    {
+                        arrayMessage += "\n-<i>null</i>";
+                    }
+                    else
+                    {
+                        arrayMessage += "\n-" + obj.ToString();
+                    }
+                }
+                arrayMessage += "\n]";  
+                UnityEngine.Debug.Log(string.Format(LOG_TEXT, method, line, arrayMessage));
+
+            }
+            else
+            {
+                UnityEngine.Debug.Log(string.Format(LOG_TEXT, method, line, message));
+            }
+        }
 
 		public static void Warning (System.Object message, int StackTraceFrameOffset = 0)
 		{
