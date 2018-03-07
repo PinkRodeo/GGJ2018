@@ -76,7 +76,9 @@ namespace Kingdom
 
 		private void ExecuteEffect(object Name)
 		{
-			Game.instance.definitions.effectDefinitions[(string)Name].GetConcreteType().ExecuteEffect();
+           var fallbackStoryNode = Game.instance.world.locations["LOC_SPYMASTERS_HOUSE"].storyHolder.lifeStoryNode;
+
+			Game.instance.definitions.effectDefinitions[(string)Name].GetConcreteType(fallbackStoryNode).ExecuteEffect();
 			m_GameTimer.SetPaused(true);
 			m_visibleCount = 0;
 		}
