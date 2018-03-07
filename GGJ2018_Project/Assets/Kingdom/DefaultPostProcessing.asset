@@ -109,7 +109,7 @@ MonoBehaviour:
         texture: {fileID: 2800000, guid: a2960ffde020f27409e070d92fb2e00b, type: 3}
         intensity: 8
   colorGrading:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       tonemapping:
         tonemapper: 2
@@ -149,14 +149,14 @@ MonoBehaviour:
             - serializedVersion: 2
               time: 0
               value: 0
-              inSlope: 1
+              inSlope: 0
               outSlope: 1
               tangentMode: 0
             - serializedVersion: 2
               time: 1
               value: 1
               inSlope: 1
-              outSlope: 1
+              outSlope: 0
               tangentMode: 0
             m_PreInfinity: 2
             m_PostInfinity: 2
@@ -236,7 +236,7 @@ MonoBehaviour:
             m_Curve: []
             m_PreInfinity: 2
             m_PostInfinity: 2
-            m_RotationOrder: 4
+            m_RotationOrder: 0
           m_Loop: 1
           m_ZeroValue: 0.5
           m_Range: 1
@@ -246,7 +246,7 @@ MonoBehaviour:
             m_Curve: []
             m_PreInfinity: 2
             m_PostInfinity: 2
-            m_RotationOrder: 4
+            m_RotationOrder: 0
           m_Loop: 1
           m_ZeroValue: 0.5
           m_Range: 1
@@ -256,7 +256,7 @@ MonoBehaviour:
             m_Curve: []
             m_PreInfinity: 2
             m_PostInfinity: 2
-            m_RotationOrder: 4
+            m_RotationOrder: 0
           m_Loop: 0
           m_ZeroValue: 0.5
           m_Range: 1
@@ -266,7 +266,7 @@ MonoBehaviour:
             m_Curve: []
             m_PreInfinity: 2
             m_PostInfinity: 2
-            m_RotationOrder: 4
+            m_RotationOrder: 0
           m_Loop: 0
           m_ZeroValue: 0.5
           m_Range: 1
@@ -286,7 +286,7 @@ MonoBehaviour:
       spectralTexture: {fileID: 0}
       intensity: 0
   grain:
-    m_Enabled: 1
+    m_Enabled: 0
     m_Settings:
       colored: 0
       intensity: 0.05
@@ -310,7 +310,7 @@ MonoBehaviour:
     currentMonitorID: 1
     refreshOnPlay: 0
     histogramMode: 4
-    waveformExposure: 0.12
+    waveformExposure: 0.17500003
     waveformY: 0
     waveformR: 1
     waveformG: 1
