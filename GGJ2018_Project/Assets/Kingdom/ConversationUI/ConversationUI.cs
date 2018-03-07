@@ -151,10 +151,12 @@ namespace Kingdom
             var currentAlpha = m_MainCanvasGroup.alpha;
             var AlphaDif = Mathf.Abs(targetAlpha - currentAlpha);
 
+            const float DURATION = 0.2f;
+
             m_VisibilityTweenerMain = DOTween.To(() => m_MainCanvasGroup.alpha, x =>
             {
                 m_MainCanvasGroup.alpha = x;
-            }, targetAlpha, AlphaDif * 0.4f).SetEase(Ease.InCirc);
+            }, targetAlpha, AlphaDif * DURATION).SetEase(Ease.InCirc);
 
             if (p_IsVisible)
             {
